@@ -84,18 +84,20 @@ The solution revolves around leveraging Flyway to manage Snowflake database migr
 - Full integration of all Snowflake resources in the deployment pipeline.
 - Error handling, rollback mechanisms, and enhanced security features.
 
-### **Sprint 1 (Sept 23–Oct 2)**:
+### **Sprint 1**:
+- Understanding Project Details
+- Creating System Architecture Diagram
 - Initial setup of the pipeline architecture and creation of basic Flyway migration scripts for database and schema management.
 
-### **Sprint 2 (Oct 7–16)**:
+### **Sprint 2**:
 - Complete the first fully functional CI/CD pipeline for Snowflake, integrating Flyway with Harness.
 
-### **Sprint 3 (Oct 21–30)**:
+### **Sprint 3**:
 - Add user and role management features.
 - Test security features, including credential management.
 
-### **Sprint 4 (Nov 4–13)**:
+### **Sprint 4**:
 - Iterative testing and finalization of features.
 
-### **Sprint 5 (Nov 18–Dec 9)**:
+### **Sprint 5**:
 - Complete documentation, final presentation preparation, and project handover.
