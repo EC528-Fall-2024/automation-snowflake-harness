@@ -1,0 +1,4 @@
+snowflake-connector-python
+python-dotenv
+tqdm
+pyway
