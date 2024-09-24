@@ -2,17 +2,17 @@
 
 ## **Project Description**
 
-This project focuses on automating the deployment and management of Snowflake resources using CI/CD pipelines, specifically leveraging Flyway for database migrations and Harness for orchestration. The goal is to streamline the creation, modification, and deletion of key Snowflake resources, including databases, schemas, users, roles, and data warehouses, in a secure and scalable manner.
+This project focuses on automating the deployment and management of Snowflake resources using CI/CD pipelines, specifically leveraging Liquibase for database migrations and Harness for orchestration. The goal is to streamline the creation, modification, and deletion of key Snowflake resources, including databases, schemas, users, roles, and data warehouses, in a secure and scalable manner.
 
 ---
 
 ## **1. Vision and Goals of the Project**
 
-The project aims to provide an automated, repeatable, and scalable solution for managing Snowflake resources. By integrating Flyway and Harness, this solution will enable teams to deploy database changes and resource configurations with minimal manual intervention. The automation will improve deployment consistency, reduce errors, and ensure secure and auditable management of Snowflake environments.
+The project aims to provide an automated, repeatable, and scalable solution for managing Snowflake resources. By integrating Liquibase and Harness, this solution will enable teams to deploy database changes and resource configurations with minimal manual intervention. The automation will improve deployment consistency, reduce errors, and ensure secure and auditable management of Snowflake environments.
 
 Key goals:
 - Automate the deployment of Snowflake resources through CI/CD pipelines.
-- Implement a robust version control system for database migrations using Flyway.
+- Implement a robust version control system for database migrations using Liquibase.
 - Ensure secure and role-based access control for Snowflake resources.
 - Develop a scalable and easy-to-manage pipeline using Harness.
 
@@ -32,7 +32,7 @@ The project will primarily serve the following user personas:
 ## **3. Scope and Features of the Project**
 
 ### **In-Scope Features**:
-- Automation of the following Snowflake resources using Flyway and Harness:
+- Automation of the following Snowflake resources using Liquibase and Harness:
   - Databases
   - Schemas
   - Users and Roles
@@ -49,13 +49,13 @@ The project will primarily serve the following user personas:
 ## **4. Solution Concept**
 
 ### **Global Architectural Structure of the Project**:
-The solution revolves around leveraging Flyway to manage Snowflake database migrations and using Harness to orchestrate the entire CI/CD process. The key components include:
-- **Flyway**: Manages version-controlled SQL migration scripts for Snowflake resources.
+The solution revolves around leveraging Liquibase to manage Snowflake database migrations and using Harness to orchestrate the entire CI/CD process. The key components include:
+- **Liquibase**: Manages version-controlled SQL migration scripts for Snowflake resources.
 - **Harness**: Orchestrates the CI/CD pipeline, automatically triggering deployments upon changes to the codebase.
 - **Snowflake**: The target data warehouse environment where databases, schemas, and user roles will be managed.
 
 ### **Design Implications and Discussion**:
-- **Flyway** ensures a consistent and trackable process for database schema management.
+- **Liquibase** ensures a consistent and trackable process for database schema management.
 - **Harness** allows for secure and automated deployment, reducing manual errors and improving deployment efficiency.
 - **Security**: Proper access control and credentials management is critical in managing a cloud-based data warehouse such as Snowflake.
 
@@ -63,7 +63,7 @@ The solution revolves around leveraging Flyway to manage Snowflake database migr
 
 ## **5. Acceptance Criteria**
 
-- Successfully automate the creation, modification, and deletion of Snowflake resources (databases, schemas, users/roles, data warehouses) using Flyway and Harness.
+- Successfully automate the creation, modification, and deletion of Snowflake resources (databases, schemas, users/roles, data warehouses) using Liquibase and Harness.
 - CI/CD pipelines are fully functional and automatically trigger on code changes.
 - Secure handling of credentials with proper role-based access control implemented in Snowflake.
 - Full testing is completed, and rollback mechanisms are in place to handle any deployment failures.
@@ -87,10 +87,10 @@ The solution revolves around leveraging Flyway to manage Snowflake database migr
 ### **Sprint 1**:
 - Understanding Project Details
 - Creating System Architecture Diagram
-- Initial setup of the pipeline architecture and creation of basic Flyway migration scripts for database and schema management.
+- Initial setup of the pipeline architecture and creation of basic Liquibase migration scripts for database and schema management.
 
 ### **Sprint 2**:
-- Complete the first fully functional CI/CD pipeline for Snowflake, integrating Flyway with Harness.
+- Complete the first fully functional CI/CD pipeline for Snowflake, integrating Liquibase with Harness.
 
 ### **Sprint 3**:
 - Add user and role management features.
