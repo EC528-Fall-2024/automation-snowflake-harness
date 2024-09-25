@@ -17,4 +17,5 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+                    
               # Add other columns as needed

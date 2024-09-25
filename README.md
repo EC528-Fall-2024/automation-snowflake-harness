@@ -98,21 +98,29 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - Understanding Project Details
 - Creating System Architecture Diagram
 - Initial setup of the pipeline architecture and creation of basic Liquibase migration scripts for database and schema management.
-- [Sprint 1 Video](link_to_sprint_1_video) | [Sprint 1 Slides](link_to_sprint_1_slides)
+- [Sprint 1 Video](https://drive.google.com/file/d/1tlP85mjfCLmxv9KotPpA4jzh1ihv8cbs/view?usp=sharing) | [Sprint 1 Slides](https://docs.google.com/presentation/d/1gbFB89ISR1-bjAJkVJ8YOSL3uXDYEvGVyaydHF2R1Cs/edit?usp=sharing)
 
 ### **Sprint 2**:
 - Complete the first fully functional CI/CD pipeline for Snowflake, integrating Liquibase with Harness.
+<!--
 - [Sprint 2 Video](link_to_sprint_2_video) | [Sprint 2 Slides](link_to_sprint_2_slides)
+-->
 
 ### **Sprint 3**:
 - Add user and role management features.
 - Test security features, including credential management.
+<!--
 - [Sprint 3 Video](link_to_sprint_3_video) | [Sprint 3 Slides](link_to_sprint_3_slides)
+-->
 
 ### **Sprint 4**:
 - Iterative testing and finalization of features.
+<!--
 - [Sprint 4 Video](link_to_sprint_4_video) | [Sprint 4 Slides](link_to_sprint_4_slides)
+-->
 
 ### **Sprint 5**:
 - Complete documentation, final presentation preparation, and project handover.
+<!--
 - [Sprint 5 Video](link_to_sprint_5_video) | [Sprint 5 Slides](link_to_sprint_5_slides)
+-->
