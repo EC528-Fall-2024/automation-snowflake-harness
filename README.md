@@ -4,7 +4,15 @@
 
 | Names             | Roles   | Emails                       | GitHub Handles |
 | :---------------- | ------- | ---------------------------- | -------------- |
-| Test              | Mentor  |                              |                |
+| Supriya Nanjundaswamy| Mentor  |   snanjundaswamy1@statestreet.com                           |                |
+| Yashaswi Upmon    | Mentor  | YUpmon@StateStreet.com                             |                |
+| Rishi Dubey       | Mentor  | RDubey8@StateStreet.com                             |                |
+| James Colley      | Mentor  | JColley@StateStreet.com                             |                |
+| Amruth Niranjan   | Student | amruth@bu.edu                | amruth-sn      |
+| Hrishav Varma     | Student | hri@bu.edu                   |                |
+| Krish Shah        | Student | rithvikn@bu.edu              |                |
+| Yuzhe Xu          | Student | yx8756a@bu.edu               |                |
+| Rithvik Nakirikanti| Student |kshah26@bu.edu               |                |
 
 ## **Project Description**
 
