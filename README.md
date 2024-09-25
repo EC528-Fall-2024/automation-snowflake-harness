@@ -1,5 +1,11 @@
 # **Automation of Snowflake Resource Deployment Using Harness**
 
+## Collaborators
+
+| Names             | Roles   | Emails                       | GitHub Handles |
+| :---------------- | ------- | ---------------------------- | -------------- |
+| Test              | Mentor  |                              |                |
+
 ## **Project Description**
 
 This project focuses on automating the deployment and management of Snowflake resources using CI/CD pipelines, specifically leveraging Liquibase for database migrations and Harness for orchestration. The goal is to streamline the creation, modification, and deletion of key Snowflake resources, including databases, schemas, users, roles, and data warehouses, in a secure and scalable manner.
