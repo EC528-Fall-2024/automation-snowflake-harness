@@ -23,9 +23,16 @@ Key goals:
 The project will primarily serve the following user personas:
 
 - **DevOps Engineers**: Manage the CI/CD pipelines and ensure smooth deployment of Snowflake resources.
-- **Database Administrators**: Oversee the Snowflake resource configurations and use the automation to deploy database changes.
+  - **Interaction**: Configure and manage CI/CD pipelines in Harness, monitor performance, and troubleshoot issues.
+  
+- **Database Administrators**: Oversee Snowflake resource configurations and use the automation to deploy database changes.
+  - **Interaction**: Review and approve Liquibase migration scripts, ensure resource integrity, and manage performance.
+
 - **Data Engineers**: Manage the data warehouse environment and ensure that changes to databases and schemas are rolled out without manual intervention.
-- **Security Engineers**: Monitor and manage the role-based access control and ensure the secure deployment of resources.
+  - **Interaction**: Monitor data warehouse performance, validate data integrity post-deployment, and provide feedback for improvements.
+
+- **Security Engineers**: Monitor and manage role-based access control and ensure the secure deployment of resources.
+  - **Interaction**: Set up access controls, conduct audits, and monitor for security breaches.
 
 ---
 
@@ -53,6 +60,9 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - **Liquibase**: Manages version-controlled SQL migration scripts for Snowflake resources.
 - **Harness**: Orchestrates the CI/CD pipeline, automatically triggering deployments upon changes to the codebase.
 - **Snowflake**: The target data warehouse environment where databases, schemas, and user roles will be managed.
+- **Version Control (Git)**: Manages code changes and triggers CI/CD pipelines.
+
+![Architecture Diagram](snowflake-architecture.png)
 
 ### **Design Implications and Discussion**:
 - **Liquibase** ensures a consistent and trackable process for database schema management.

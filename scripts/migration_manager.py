@@ -1,5 +1,5 @@
-import subprocess
 import logging
+import subprocess
 import os
 from datetime import datetime
 
@@ -25,7 +25,7 @@ def run_liquibase_migration():
         # Command to run Liquibase migration
         command = [
             'liquibase',
-            '--changeLogFile=migrations/changelog.xml',
+            '--changeLogFile=migrations/changelog.yaml',  # Updated to YAML
             '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&db=TEST&schema=PUBLIC',
             'update'
         ]
@@ -35,4 +35,7 @@ def run_liquibase_migration():
 
     except subprocess.CalledProcessError as e:
         logging.error("Error during migration: %s", e.stderr)
+        raise
+    except Exception as e:
+        logging.error("Unexpected error: %s", str(e))
         raise
