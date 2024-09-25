@@ -10,9 +10,9 @@
 | James Colley      | Mentor  | JColley@StateStreet.com                             |                |
 | Amruth Niranjan   | Student | amruth@bu.edu                | amruth-sn      |
 | Hrishav Varma     | Student | hri@bu.edu                   |                |
-| Krish Shah        | Student | rithvikn@bu.edu              |                |
+| Krish Shah        | Student | kshah26@bu.edu              |                |
 | Yuzhe Xu          | Student | yx8756a@bu.edu               |                |
-| Rithvik Nakirikanti| Student |kshah26@bu.edu               |                |
+| Rithvik Nakirikanti| Student |rithvikn@bu.edu               | https://github.com/rithvik213               |
 
 ## **Project Description**
 
