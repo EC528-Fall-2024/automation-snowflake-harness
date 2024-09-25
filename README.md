@@ -4,7 +4,7 @@
 
 | Names             | Roles   | Emails                       | GitHub Handles |
 | :---------------- | ------- | ---------------------------- | -------------- |
-| Supriya Nanjundaswamy| Mentor  |   snanjundaswamy1@statestreet.com                           |                |
+| Supriya Nanjundaswamy| Mentor  |   snanjundaswamy1@StateStreet.com                           |                |
 | Yashaswi Upmon    | Mentor  | YUpmon@StateStreet.com                             |                |
 | Rishi Dubey       | Mentor  | RDubey8@StateStreet.com                             |                |
 | James Colley      | Mentor  | JColley@StateStreet.com                             |                |
@@ -12,7 +12,7 @@
 | Hrishav Varma     | Student | hri@bu.edu                   |                |
 | Krish Shah        | Student | kshah26@bu.edu              |                |
 | Yuzhe Xu          | Student | yx8756a@bu.edu               |                |
-| Rithvik Nakirikanti| Student |rithvikn@bu.edu               | https://github.com/rithvik213               |
+| Rithvik Nakirikanti| Student |rithvikn@bu.edu               | rithvik213               |
 
 ## **Project Description**
 
