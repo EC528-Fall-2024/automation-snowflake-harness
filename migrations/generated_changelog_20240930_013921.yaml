@@ -1,0 +1,55 @@
+databaseChangeLog:
+- changeSet:
+    id: create-procedure-b48e5b83
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: ASSOCIATE_SEMANTIC_CATEGORY_TAGS
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.ASSOCIATE_SEMANTIC_CATEGORY_TAGSN\n\
+          RETURNS N\nLANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"
+- changeSet:
+    id: create-procedure-4fcbbd91
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: STORE_CLASSIFICATION
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.STORE_CLASSIFICATIONN\nRETURNS\
+          \ N\nLANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"
+- changeSet:
+    id: create-procedure-8b4db286
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$CLASSIFY
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.SYSTEM$CLASSIFYN\nRETURNS N\n\
+          LANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"
+- changeSet:
+    id: create-procedure-ad179922
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$REQUEST_LISTING_AND_WAIT
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.SYSTEM$REQUEST_LISTING_AND_WAITN\n\
+          RETURNS N\nLANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"
+- changeSet:
+    id: create-procedure-eef7b591
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$SEND_EMAIL
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.SYSTEM$SEND_EMAILN\nRETURNS\
+          \ N\nLANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"
+- changeSet:
+    id: create-procedure-92c95b84
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$SEND_SNOWFLAKE_NOTIFICATION
+        procedureBody: "CREATE OR REPLACE PROCEDURE Y.SYSTEM$SEND_SNOWFLAKE_NOTIFICATIONN\n\
+          RETURNS N\nLANGUAGE SQL\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$"

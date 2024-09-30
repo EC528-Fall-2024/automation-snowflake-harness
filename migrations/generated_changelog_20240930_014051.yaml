@@ -1,0 +1,55 @@
+databaseChangeLog:
+- changeSet:
+    id: create-procedure-Y-ASSOCIATE_SEMANTIC_CATEGORY_TAGS
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: ASSOCIATE_SEMANTIC_CATEGORY_TAGS
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.ASSOCIATE_SEMANTIC_CATEGORY_TAGSN\n\
+          RETURNS N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"
+- changeSet:
+    id: create-procedure-Y-STORE_CLASSIFICATION
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: STORE_CLASSIFICATION
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.STORE_CLASSIFICATIONN\nRETURNS\
+          \ N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"
+- changeSet:
+    id: create-procedure-Y-SYSTEM$CLASSIFY
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$CLASSIFY
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.SYSTEM$CLASSIFYN\nRETURNS\
+          \ N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"
+- changeSet:
+    id: create-procedure-Y-SYSTEM$REQUEST_LISTING_AND_WAIT
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$REQUEST_LISTING_AND_WAIT
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.SYSTEM$REQUEST_LISTING_AND_WAITN\n\
+          RETURNS N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"
+- changeSet:
+    id: create-procedure-Y-SYSTEM$SEND_EMAIL
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$SEND_EMAIL
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.SYSTEM$SEND_EMAILN\nRETURNS\
+          \ N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"
+- changeSet:
+    id: create-procedure-Y-SYSTEM$SEND_SNOWFLAKE_NOTIFICATION
+    author: dynamic-generator
+    changes:
+    - createProcedure:
+        schemaName: Y
+        procedureName: SYSTEM$SEND_SNOWFLAKE_NOTIFICATION
+        procedureBody: "\nCREATE OR REPLACE PROCEDURE Y.SYSTEM$SEND_SNOWFLAKE_NOTIFICATIONN\n\
+          RETURNS N\nAS\n$$\nBEGIN\n  RETURN NULL;\nEND;\n$$\n"

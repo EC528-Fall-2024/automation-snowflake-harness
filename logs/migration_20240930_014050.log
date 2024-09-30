@@ -1,0 +1,100 @@
+2024-09-30 01:40:50,569 - INFO - Starting the migration process.
+2024-09-30 01:40:50,569 - INFO - Snowflake Credentials: {'user': 'EC528AUTOMATION', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'PUBLIC'}
+2024-09-30 01:40:50,569 - INFO - Connecting to Snowflake...
+2024-09-30 01:40:50,569 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-09-30 01:40:50,570 - INFO - Connecting to GLOBAL Snowflake domain
+2024-09-30 01:40:50,570 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-30 01:40:50,936 - INFO - Connection to Snowflake established successfully.
+2024-09-30 01:40:51,266 - INFO - Number of results in first chunk: 1
+2024-09-30 01:40:51,266 - INFO - Schema PUBLIC created successfully.
+2024-09-30 01:40:51,266 - INFO - closed
+2024-09-30 01:40:51,296 - INFO - No async queries seem to be running, deleting session
+2024-09-30 01:40:51,344 - INFO - Connecting to Snowflake...
+2024-09-30 01:40:51,345 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-09-30 01:40:51,345 - INFO - Connecting to GLOBAL Snowflake domain
+2024-09-30 01:40:51,345 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-30 01:40:51,555 - INFO - Connection to Snowflake established successfully.
+2024-09-30 01:40:51,758 - INFO - Number of results in first chunk: 2
+2024-09-30 01:40:51,887 - INFO - Number of results in first chunk: 0
+2024-09-30 01:40:51,952 - INFO - Number of results in first chunk: 0
+2024-09-30 01:40:52,036 - INFO - Number of results in first chunk: 10
+2024-09-30 01:40:52,043 - WARNING - Duplicate procedure found: Y.SYSTEM$SEND_EMAIL. Using the first occurrence.
+2024-09-30 01:40:52,043 - WARNING - Duplicate procedure found: Y.SYSTEM$SEND_SNOWFLAKE_NOTIFICATION. Using the first occurrence.
+2024-09-30 01:40:52,043 - WARNING - Duplicate procedure found: Y.SYSTEM$SEND_SNOWFLAKE_NOTIFICATION. Using the first occurrence.
+2024-09-30 01:40:52,043 - WARNING - Duplicate procedure found: Y.SYSTEM$SEND_SNOWFLAKE_NOTIFICATION. Using the first occurrence.
+2024-09-30 01:40:52,043 - INFO - Successfully retrieved database objects.
+2024-09-30 01:40:52,043 - INFO - closed
+2024-09-30 01:40:52,071 - INFO - No async queries seem to be running, deleting session
+2024-09-30 01:40:52,117 - INFO - Total changesets generated: 6
+2024-09-30 01:40:52,123 - INFO - Changelog written to migrations/generated_changelog_20240930_014051.yaml
+2024-09-30 01:40:52,132 - INFO - Changelog validation successful. Total changesets: 6
+2024-09-30 01:40:52,132 - INFO - Changeset IDs:
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-ASSOCIATE_SEMANTIC_CATEGORY_TAGS
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-STORE_CLASSIFICATION
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-SYSTEM$CLASSIFY
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-SYSTEM$REQUEST_LISTING_AND_WAIT
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-SYSTEM$SEND_EMAIL
+2024-09-30 01:40:52,132 - INFO -   create-procedure-Y-SYSTEM$SEND_SNOWFLAKE_NOTIFICATION
+2024-09-30 01:40:52,132 - INFO - Constructed Snowflake URL: jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=********&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC
+2024-09-30 01:40:52,132 - INFO - Starting Liquibase migration using changelog: migrations/generated_changelog_20240930_014051.yaml
+2024-09-30 01:40:54,471 - INFO - Running migration with command: liquibase --changeLogFile=migrations/generated_changelog_20240930_014051.yaml --url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC --defaultSchemaName=PUBLIC update
+2024-09-30 01:41:02,734 - ERROR - Error running Liquibase migration:
+Command: ['liquibase', '--changeLogFile=migrations/generated_changelog_20240930_014051.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']
+Return Code: 1
+STDOUT: 
+UPDATE SUMMARY
+Run:                          0
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            6
+
+
+STDERR: ####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ## 
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ## 
+##                                                ##
+####################################################
+Starting Liquibase at 01:40:56 using Java 23 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Running Changeset: migrations/generated_changelog_20240930_014051.yaml::create-procedure-Y-ASSOCIATE_SEMANTIC_CATEGORY_TAGS::dynamic-generator
+ERROR: Exception Details
+ERROR: Exception Primary Class:  SnowflakeSQLException
+ERROR: Exception Primary Reason:  SQL compilation error:
+syntax error line 2 at position 0 unexpected 'RETURNS'.
+syntax error line 3 at position 0 unexpected 'AS'.
+ERROR: Exception Primary Source:  Snowflake 8.36.3
+
+Unexpected error running Liquibase: Migration failed for changeset migrations/generated_changelog_20240930_014051.yaml::create-procedure-Y-ASSOCIATE_SEMANTIC_CATEGORY_TAGS::dynamic-generator:
+     Reason: liquibase.exception.DatabaseException: SQL compilation error:
+syntax error line 2 at position 0 unexpected 'RETURNS'.
+syntax error line 3 at position 0 unexpected 'AS'. [Failed SQL: (1003) CREATE OR REPLACE PROCEDURE Y.ASSOCIATE_SEMANTIC_CATEGORY_TAGSN
+RETURNS N
+AS
+$$
+BEGIN
+  RETURN NULL;
+END;
+$$]
+
+For more information, please use the --log-level flag
+
+2024-09-30 01:41:02,734 - ERROR - Migration process failed: Command '['liquibase', '--changeLogFile=migrations/generated_changelog_20240930_014051.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/Users/krish/automation-snowflake-harness/main.py", line 65, in main
+    migration_manager.run_migration(changelog_file)
+  File "/Users/krish/automation-snowflake-harness/scripts/migration_manager.py", line 61, in run_migration
+    result = subprocess.run(update_command, check=True, capture_output=True, text=True)
+  File "/Users/krish/anaconda3/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['liquibase', '--changeLogFile=migrations/generated_changelog_20240930_014051.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']' returned non-zero exit status 1.

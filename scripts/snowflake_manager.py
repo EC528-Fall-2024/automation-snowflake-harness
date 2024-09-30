@@ -1,20 +1,6 @@
 import logging
 import snowflake.connector
-import os
-from config.settings import SNOWFLAKE_CREDENTIALS  # Import the credentials dictionary
-from datetime import datetime
-
-# Create logs directory if it doesn't exist
-if not os.path.exists('logs'):
-    os.makedirs('logs')
-
-# Configure logging with a unique filename based on the current timestamp
-logging.basicConfig(
-    filename=f'logs/migration_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log',
-    filemode='a',                   # Append mode
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    level=logging.INFO              # Set logging level
-)
+from config.settings import SNOWFLAKE_CREDENTIALS
 
 def connect_to_snowflake():
     """
@@ -26,9 +12,9 @@ def connect_to_snowflake():
             user=SNOWFLAKE_CREDENTIALS["user"],
             password=SNOWFLAKE_CREDENTIALS["password"],
             account=SNOWFLAKE_CREDENTIALS["account"],
-            database=SNOWFLAKE_CREDENTIALS["database"],
             warehouse=SNOWFLAKE_CREDENTIALS["warehouse"],
-            schema=SNOWFLAKE_CREDENTIALS["schema"]  # Use the schema if specified
+            database=SNOWFLAKE_CREDENTIALS["database"],
+            schema=SNOWFLAKE_CREDENTIALS["schema"]
         )
         logging.info("Connection to Snowflake established successfully.")
         return conn
@@ -45,5 +31,19 @@ def create_schema(schema_name):
         with conn.cursor() as cur:
             cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
             logging.info("Schema %s created successfully.", schema_name)
+    finally:
+        conn.close()
+
+def execute_query(query):
+    """
+    Executes a given SQL query in Snowflake.
+    """
+    conn = connect_to_snowflake()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(query)
+            logging.info("Query executed successfully.")
+    except Exception as e:
+        logging.error(f"Error executing query: {str(e)}")
     finally:
         conn.close()
