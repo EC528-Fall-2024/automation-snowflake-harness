@@ -1,4 +1,4 @@
-# File location: requirements.txt
-
 snowflake-connector-python
 python-dotenv
+tqdm
+pyway
