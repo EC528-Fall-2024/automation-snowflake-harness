@@ -75,6 +75,7 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - **Harness**: Orchestrates the CI/CD pipeline, automatically triggering deployments upon changes to the codebase.
 - **Snowflake**: The target data warehouse environment where databases, schemas, and user roles will be managed.
 - **Version Control (Git)**: Manages code changes and triggers CI/CD pipelines.
+- **GitHub Actions**: Automates the CI/CD pipeline, allowing continuous deployment of Snowflake resources whenever changes are made to the codebase. The GitHub Actions workflow is defined in the `.github/workflows/ci-cd.yml` file, which is triggered on every push to the `main` branch and on pull requests targeting the `main` branch.
 
 ![Architecture Diagram](snowflake-architecture.png)
 
