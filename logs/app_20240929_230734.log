@@ -1,0 +1,20 @@
+2024-09-29 23:07:34,729 - INFO - Starting Snowflake resource deployment process.
+2024-09-29 23:07:34,730 - INFO - Attempting to create database: demo_database
+2024-09-29 23:07:34,730 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-09-29 23:07:34,730 - INFO - Connecting to GLOBAL Snowflake domain
+2024-09-29 23:07:34,730 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-29 23:07:35,523 - INFO - Number of results in first chunk: 1
+2024-09-29 23:07:35,523 - INFO - Database 'demo_database' created successfully.
+2024-09-29 23:07:35,523 - INFO - closed
+2024-09-29 23:07:35,595 - INFO - No async queries seem to be running, deleting session
+2024-09-29 23:07:35,644 - INFO - Attempting to create schema: demo_schema
+2024-09-29 23:07:35,644 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-09-29 23:07:35,645 - INFO - Connecting to GLOBAL Snowflake domain
+2024-09-29 23:07:35,645 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-29 23:07:36,265 - INFO - Number of results in first chunk: 1
+2024-09-29 23:07:36,265 - INFO - Schema 'demo_schema' created successfully.
+2024-09-29 23:07:36,265 - INFO - closed
+2024-09-29 23:07:36,306 - INFO - No async queries seem to be running, deleting session
+2024-09-29 23:07:36,397 - INFO - Starting Liquibase migration.
+2024-09-29 23:07:40,494 - ERROR - Liquibase migration failed: Command '['liquibase', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com', '--username=EC528AUTOMATION', '--password=Chesterfield4396@', '--changeLogFile=/Users/krish/automation-snowflake-harness/scripts/../migrations/V1__create_database.sql', 'update']' returned non-zero exit status 1.
+2024-09-29 23:07:40,494 - INFO - Snowflake resource deployment process completed.
