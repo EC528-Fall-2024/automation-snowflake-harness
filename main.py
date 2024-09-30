@@ -1,4 +1,4 @@
-from scripts.migration_manager import run_liquibase_migration, generate_changelog
+from scripts.migration_manager import run_liquibase_migration
 from scripts.snowflake_manager import create_schema
 import logging
 import os
@@ -21,17 +21,8 @@ def main():
     Main function to run the schema creation and migration.
     """
     logging.info('Starting the migration process.')
-    
-    # Create the demo schema
-    create_schema("demo_schema")
-    
-    # Generate changelog before running migration
-    reference_db_url = 'jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&db=TEST&schema=PUBLIC'
-    generate_changelog(reference_db_url)  # Generate changelog
-
-    # Run Liquibase migrations
-    run_liquibase_migration()
-    
+    create_schema("demo_schema")  # Create the demo schema
+    run_liquibase_migration()      # Run Liquibase migrations
     logging.info('Migration process completed.')
 
 if __name__ == '__main__':
