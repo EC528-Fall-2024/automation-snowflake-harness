@@ -1,49 +1,40 @@
+# File location: scripts/snowflake_manager.py
+
 import logging
-import snowflake.connector
-import os
-from config.settings import SNOWFLAKE_CREDENTIALS  # Import the credentials dictionary
-from datetime import datetime
+from utils.db_utils import get_connection
 
-# Create logs directory if it doesn't exist
-if not os.path.exists('logs'):
-    os.makedirs('logs')
-
-# Configure logging with a unique filename based on the current timestamp
-logging.basicConfig(
-    filename=f'logs/migration_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log',
-    filemode='a',                   # Append mode
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    level=logging.INFO              # Set logging level
-)
-
-def connect_to_snowflake():
+def create_database(database_name):
     """
-    Establishes a connection to Snowflake.
+    Create a Snowflake database if it does not already exist.
+    
+    Args:
+        database_name (str): The name of the database to create.
     """
+    logging.info(f"Attempting to create database: {database_name}")
+    conn = get_connection()
     try:
-        logging.info("Connecting to Snowflake...")
-        conn = snowflake.connector.connect(
-            user=SNOWFLAKE_CREDENTIALS["user"],
-            password=SNOWFLAKE_CREDENTIALS["password"],
-            account=SNOWFLAKE_CREDENTIALS["account"],
-            database=SNOWFLAKE_CREDENTIALS["database"],
-            warehouse=SNOWFLAKE_CREDENTIALS["warehouse"],
-            schema=SNOWFLAKE_CREDENTIALS["schema"]  # Use the schema if specified
-        )
-        logging.info("Connection to Snowflake established successfully.")
-        return conn
+        with conn.cursor() as cursor:
+            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name};")
+            logging.info(f"Database '{database_name}' created successfully.")
     except Exception as e:
-        logging.error("Failed to connect to Snowflake: %s", str(e))
-        raise
+        logging.error(f"Error creating database '{database_name}': {str(e)}")
+    finally:
+        conn.close()
 
 def create_schema(schema_name):
     """
-    Creates a schema in the specified Snowflake database.
+    Create a Snowflake schema if it does not already exist.
+    
+    Args:
+        schema_name (str): The name of the schema to create.
     """
-    conn = connect_to_snowflake()
+    logging.info(f"Attempting to create schema: {schema_name}")
+    conn = get_connection()
     try:
-        with conn.cursor() as cur:
-            cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
-            logging.info("Schema %s created successfully.", schema_name)
+        with conn.cursor() as cursor:
+            cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
+            logging.info(f"Schema '{schema_name}' created successfully.")
+    except Exception as e:
+        logging.error(f"Error creating schema '{schema_name}': {str(e)}")
     finally:
         conn.close()
