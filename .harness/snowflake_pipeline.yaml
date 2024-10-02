@@ -109,3 +109,14 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
+  notificationRules:
+    - name: Test Rule
+      identifier: Test_Rule
+      pipelineEvents:
+        - type: AllEvents
+      notificationMethod:
+        type: Slack
+        spec:
+          userGroups: []
+          webhookUrl: https://hooks.slack.com/services/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
+      enabled: true
