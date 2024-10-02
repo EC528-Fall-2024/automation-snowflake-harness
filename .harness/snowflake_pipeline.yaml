@@ -118,5 +118,5 @@ pipeline:
         type: Slack
         spec:
           userGroups: []
-          webhookUrl: https://hooks.slack.com/services/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
+          webhookUrl: <+secrets.getValue("slack_webhook_url")>
       enabled: true
