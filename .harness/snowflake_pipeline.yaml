@@ -109,3 +109,14 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
+  notificationRules:
+    - name: Test Rule
+      identifier: Test_Rule
+      pipelineEvents:
+        - type: AllEvents
+      notificationMethod:
+        type: Slack
+        spec:
+          userGroups: []
+          webhookUrl: <+secrets.getValue("slack_webhook_url")>
+      enabled: true
