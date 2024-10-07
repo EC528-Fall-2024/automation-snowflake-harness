@@ -48,6 +48,8 @@ The project will primarily serve the following user personas:
 - **Security Engineers**: Monitor and manage role-based access control and ensure the secure deployment of resources.
   - **Interaction**: Set up access controls, conduct audits, and monitor for security breaches.
 
+![User Flow Diagram](snowflake-user-flow.png)
+
 ---
 
 ## **3. Scope and Features of the Project**
