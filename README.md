@@ -11,7 +11,7 @@
 | Amruth Niranjan   | Student | amruth@bu.edu                | amruth-sn      |
 | Hrishav Varma     | Student | hri@bu.edu                   |                |
 | Krish Shah        | Student | kshah26@bu.edu               | krish-shahh    |
-| Yuzhe Xu          | Student | yx8756a@bu.edu               |                |
+| Yuzhe Xu          | Student | yx8756a@bu.edu               |  yuzhexu       |
 | Rithvik Nakirikanti| Student |rithvikn@bu.edu               | rithvik213               |
 
 ## **Project Description**
@@ -47,6 +47,8 @@ The project will primarily serve the following user personas:
 
 - **Security Engineers**: Monitor and manage role-based access control and ensure the secure deployment of resources.
   - **Interaction**: Set up access controls, conduct audits, and monitor for security breaches.
+
+![User Flow Diagram](snowflake-user-flow.png)
 
 ---
 
