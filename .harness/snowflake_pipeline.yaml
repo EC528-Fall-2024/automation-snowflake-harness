@@ -1,0 +1,122 @@
+pipeline:
+  name: snowflake pipeline
+  identifier: snowflake_pipeline
+  projectIdentifier: snowflake_harness_automation
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Code Checkout
+        identifier: Code_Checkout
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: Git Checkout
+                  identifier: git_checkout
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          git clone https://github.com/EC528-Fall-2024/automation-snowflake-harness.git
+                          cd automation-snowflake-harness
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: Liquibase Migration
+        identifier: Liquibase_Migration
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: Liquibase Run
+                  identifier: liquibase_run
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          cd automation-snowflake-harness/migrations
+                          # Find the most recent changelog file
+                          latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
+                          echo "Using changelog file: $latest_changelog"
+                          # Run Liquibase using the latest changelog
+                          liquibase --changeLogFile=$latest_changelog update
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: Deploy to Snowflake
+        identifier: Deploy_to_Snowflake
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: Snowflake Deploy
+                  identifier: snowflake_deploy
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          cd automation-snowflake-harness/liquibase
+                          snowsql -f deploy.sql
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: Testing
+        identifier: Testing
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: Run Tests
+                  identifier: run_tests
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          cd automation-snowflake-harness/tests
+                          python test_migrations.py
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+  notificationRules:
+    - name: Test Rule
+      identifier: Test_Rule
+      pipelineEvents:
+        - type: AllEvents
+      notificationMethod:
+        type: Slack
+        spec:
+          userGroups: []
+          webhookUrl: <+secrets.getValue("slack_webhook_url")>
+      enabled: true
