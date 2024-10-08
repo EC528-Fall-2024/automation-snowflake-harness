@@ -56,7 +56,9 @@ def generate_changelog(objects):
                             {'column': {'name': 'id', 'type': 'INT', 'autoIncrement': True, 'constraints': {'primaryKey': True, 'nullable': False}}}
                         ]
                     }
-                }]
+                }],
+                'rollback': [{'dropTable': {'schemaName': table['schema'], 'tableName': table['name']}}] # Add rollback for table creation
+
             }
         })
     
@@ -71,7 +73,9 @@ def generate_changelog(objects):
                         'viewName': view['name'],
                         'selectQuery': f'SELECT * FROM {view["schema"]}.{view["name"]}'
                     }
-                }]
+                }],
+                'rollback': [{'dropView': {'schemaName': view['schema'], 'viewName': view['name']}}] # Add rollback for view creation
+
             }
         })
     
@@ -87,7 +91,8 @@ def generate_changelog(objects):
                         'startValue': 1,
                         'incrementBy': 1
                     }
-                }]
+                }],
+                'rollback': [{'dropSequence': {'schemaName': sequence['schema'], 'sequenceName': sequence['name']}}] # Add rollback for sequence creation
             }
         })
 

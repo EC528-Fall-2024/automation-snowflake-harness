@@ -48,6 +48,7 @@ class MigrationManager:
             yaml.dump(changelog, file, sort_keys=False)
 
     def run_migration(self, changelog_file):
+        
         try:
             logging.info(f"Starting Liquibase migration using changelog: {changelog_file}")
 
@@ -129,4 +130,57 @@ class MigrationManager:
             raise
         except Exception as e:
             logging.error("Unexpected error during migration verification: %s", str(e), exc_info=True)
+            raise
+    # Rollback the last n changes
+    def rollback_last_changes(self, changelog_file,count=1):
+        try:
+            logging.info(f"Rolling back the last {count} changes.")
+
+            rollback_command = [
+                'liquibase',
+                f'--changeLogFile={changelog_file}',
+                f'--url={self.snowflake_url}',
+                f'--defaultSchemaName={SNOWFLAKE_CREDENTIALS["schema"]}',
+                'rollbackCount',
+                str(count)
+            ]
+
+            result = subprocess.run(rollback_command, check=True, capture_output=True, text=True)
+            logging.info("Rollback Output:\n%s", result.stdout)
+            if result.stderr:
+                logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
+
+        except subprocess.CalledProcessError as e:
+            logging.error("Error executing rollback:\nCommand: %s\nReturn Code: %d\nSTDOUT: %s\nSTDERR: %s",
+                        e.cmd, e.returncode, e.stdout, e.stderr)
+            raise
+        except Exception as e:
+            logging.error("Unexpected error during rollback: %s", str(e), exc_info=True)
+            raise
+
+    # Rollback to a specific tag        
+    def rollback_to_tag(self, changelog_file,tag):
+        try:
+            logging.info(f"Rolling back to tag {tag}.")
+
+            rollback_command = [
+                'liquibase',
+                f'--changeLogFile={changelog_file}',
+                f'--url={self.snowflake_url}',
+                f'--defaultSchemaName={SNOWFLAKE_CREDENTIALS["schema"]}',
+                'rollback',
+                tag
+            ]
+
+            result = subprocess.run(rollback_command, check=True, capture_output=True, text=True)
+            logging.info("Rollback Output:\n%s", result.stdout)
+            if result.stderr:
+                logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
+
+        except subprocess.CalledProcessError as e:
+            logging.error("Error executing rollback:\nCommand: %s\nReturn Code: %d\nSTDOUT: %s\nSTDERR: %s", 
+                        e.cmd, e.returncode, e.stdout, e.stderr)
+            raise
+        except Exception as e:
+            logging.error("Unexpected error during rollback: %s", str(e), exc_info=True)
             raise
