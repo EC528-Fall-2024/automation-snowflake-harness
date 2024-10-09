@@ -118,9 +118,8 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 
 ### **Sprint 2**:
 - Complete the first fully functional CI/CD pipeline for Snowflake, integrating Liquibase with Harness.
-<!--
-- [Sprint 2 Video](link_to_sprint_2_video) | [Sprint 2 Slides](link_to_sprint_2_slides)
--->
+
+- [Sprint 2 Video](link_to_sprint_2_video) | [Sprint 2 Slides](https://docs.google.com/presentation/d/1ZELijHprziXk3Q5UXp_wHYXuJceKIPzLYCy5MiPF_Ik/edit?usp=sharing)
 
 ### **Sprint 3**:
 - Add user and role management features.
