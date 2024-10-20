@@ -25,11 +25,22 @@ def connect_to_snowflake():
 def create_schema(schema_name):
     """
     Creates a schema in the specified Snowflake database.
+    
+    Parameters:
+        schema_name (str): The name of the schema to create.
     """
     conn = connect_to_snowflake()
     try:
         with conn.cursor() as cur:
-            cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
+            # Create the database if it doesn't exist
+            cur.execute(f"CREATE DATABASE IF NOT EXISTS {SNOWFLAKE_CREDENTIALS['database']};")
+            logging.info("Database %s created successfully (if it didn't already exist).", SNOWFLAKE_CREDENTIALS['database'])
+            
+            # Use the specified database
+            cur.execute(f"USE DATABASE {SNOWFLAKE_CREDENTIALS['database']};")
+            
+            # Create the schema
+            cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
             logging.info("Schema %s created successfully.", schema_name)
     finally:
         conn.close()

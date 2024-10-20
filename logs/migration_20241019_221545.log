@@ -1,0 +1,70 @@
+2024-10-19 22:15:45,176 - INFO - Starting the migration process.
+2024-10-19 22:15:45,176 - INFO - Snowflake Credentials: {'user': 'EC528AUTOMATION', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'TEST_SCHEMA'}
+2024-10-19 22:15:45,176 - INFO - Connecting to Snowflake...
+2024-10-19 22:15:45,177 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-19 22:15:45,177 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-19 22:15:45,177 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-19 22:15:45,872 - INFO - Connection to Snowflake established successfully.
+2024-10-19 22:15:46,265 - INFO - Number of results in first chunk: 1
+2024-10-19 22:15:46,265 - INFO - Database TEST created successfully (if it didn't already exist).
+2024-10-19 22:15:46,362 - INFO - Number of results in first chunk: 1
+2024-10-19 22:15:46,440 - INFO - Number of results in first chunk: 1
+2024-10-19 22:15:46,440 - INFO - Schema TEST_SCHEMA created successfully.
+2024-10-19 22:15:46,440 - INFO - closed
+2024-10-19 22:15:46,481 - INFO - No async queries seem to be running, deleting session
+2024-10-19 22:15:46,529 - INFO - Connecting to Snowflake...
+2024-10-19 22:15:46,530 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-19 22:15:46,530 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-19 22:15:46,530 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-19 22:15:46,871 - INFO - Connection to Snowflake established successfully.
+2024-10-19 22:15:47,216 - INFO - Number of results in first chunk: 2
+2024-10-19 22:15:47,375 - INFO - Number of results in first chunk: 0
+2024-10-19 22:15:47,446 - INFO - Number of results in first chunk: 0
+2024-10-19 22:15:47,446 - INFO - Successfully retrieved database objects.
+2024-10-19 22:15:47,447 - INFO - closed
+2024-10-19 22:15:47,487 - INFO - No async queries seem to be running, deleting session
+2024-10-19 22:15:47,543 - INFO - Total changesets generated: 0
+2024-10-19 22:15:47,544 - INFO - Changelog written to migrations/generated_changelog_20241019_221546.yaml
+2024-10-19 22:15:47,545 - INFO - Changelog validation successful. Total changesets: 0
+2024-10-19 22:15:47,545 - INFO - Changeset IDs:
+2024-10-19 22:15:47,545 - INFO - Constructed Snowflake URL: jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=********&warehouse=COMPUTE_WH&database=TEST&schema=TEST_SCHEMA
+2024-10-19 22:15:47,545 - INFO - Starting Liquibase migration using changelog: migrations/generated_changelog_20241019_221546.yaml
+2024-10-19 22:15:54,750 - INFO - Running migration with command: liquibase --changeLogFile=migrations/generated_changelog_20241019_221546.yaml --url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=TEST_SCHEMA --defaultSchemaName=TEST_SCHEMA update
+2024-10-19 22:16:01,376 - INFO - Migration Output:
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            0
+
+
+2024-10-19 22:16:01,376 - WARNING - Migration Warnings/Errors:
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ## 
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ## 
+##                                                ##
+####################################################
+Starting Liquibase at 22:15:57 using Java 23 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Database is up to date, no changesets to execute
+Liquibase command 'update' was executed successfully.
+
+2024-10-19 22:16:01,377 - INFO - Verifying migration...
+2024-10-19 22:16:08,084 - INFO - Migration Verification Output:
+EC528AUTOMATION@jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com:443/ is up to date
+
+2024-10-19 22:16:08,085 - INFO - Migration verification successful. Database is up to date.
+2024-10-19 22:16:08,085 - INFO - Liquibase migration completed successfully.
+2024-10-19 22:16:08,085 - INFO - Migration process completed successfully.

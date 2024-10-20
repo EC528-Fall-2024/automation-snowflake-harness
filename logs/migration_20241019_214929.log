@@ -1,0 +1,24 @@
+2024-10-19 21:49:29,110 - INFO - Starting the migration process.
+2024-10-19 21:49:29,111 - INFO - Snowflake Credentials: {'user': 'EC528AUTOMATION', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'TEST_SCHEMA'}
+2024-10-19 21:49:29,111 - INFO - Connecting to Snowflake...
+2024-10-19 21:49:29,111 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-19 21:49:29,111 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-19 21:49:29,111 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-19 21:49:29,631 - INFO - Connection to Snowflake established successfully.
+2024-10-19 21:49:30,009 - INFO - closed
+2024-10-19 21:49:30,057 - INFO - No async queries seem to be running, deleting session
+2024-10-19 21:49:30,118 - ERROR - Migration process failed: 090105 (22000): 01b7ce6d-010b-1ce0-0008-da4b0004042e: Cannot perform CREATE SCHEMA. This session does not have a current database. Call 'USE DATABASE', or use a qualified name.
+Traceback (most recent call last):
+  File "/Users/krish/Desktop/BU/Fall 2024/EC528/automation-snowflake-harness/main.py", line 48, in main
+    create_schema(SNOWFLAKE_CREDENTIALS['schema'])
+  File "/Users/krish/Desktop/BU/Fall 2024/EC528/automation-snowflake-harness/scripts/snowflake_manager.py", line 32, in create_schema
+    cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/cursor.py", line 1087, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 284, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 339, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 215, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 090105 (22000): 01b7ce6d-010b-1ce0-0008-da4b0004042e: Cannot perform CREATE SCHEMA. This session does not have a current database. Call 'USE DATABASE', or use a qualified name.
