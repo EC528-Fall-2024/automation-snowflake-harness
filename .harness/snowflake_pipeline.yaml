@@ -55,12 +55,12 @@ pipeline:
                           cd automation-snowflake-harness/migrations
                           
                           # Load environment variables from Harness secrets
-                          export SNOWFLAKE_ACCOUNT=$(secrets.getValue("SNOWFLAKE_ACCOUNT"))
-                          export SNOWFLAKE_USER=$(secrets.getValue("SNOWFLAKE_USER"))
-                          export SNOWFLAKE_PASSWORD=$(secrets.getValue("SNOWFLAKE_PASSWORD"))
-                          export SNOWFLAKE_WAREHOUSE=$(secrets.getValue("SNOWFLAKE_WAREHOUSE"))
-                          export SNOWFLAKE_DATABASE=$(secrets.getValue("SNOWFLAKE_DATABASE"))
-                          export SNOWFLAKE_SCHEMA=$(secrets.getValue("SNOWFLAKE_SCHEMA"))
+                          export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
+                          export SNOWFLAKE_USER=<+secrets.getValue("SNOWFLAKE_USER")>
+                          export SNOWFLAKE_PASSWORD=<+secrets.getValue("SNOWFLAKE_PASSWORD")>
+                          export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
+                          export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
+                          export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
                           
                           # Find the most recent changelog file
                           latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
