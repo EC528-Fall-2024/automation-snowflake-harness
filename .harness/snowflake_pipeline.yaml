@@ -77,9 +77,29 @@ pipeline:
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
                           update
-
+              # Add a finally step to release the lock in case of failure
+              - step:
+                  type: ShellScript
+                  name: Liquibase Release Lock
+                  identifier: liquibase_release_lock
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          # Always release the lock after Liquibase operation
+                          liquibase \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
+                          --username=$SNOWFLAKE_USER \
+                          --password=$SNOWFLAKE_PASSWORD \
+                          releaseLocks
                     environmentVariables: []
                     outputVariables: []
+                    when:
+                      failure: true  # Ensure it runs on failure too
                   timeout: 10m
         tags: {}
     - stage:
