@@ -27,6 +27,8 @@ pipeline:
                           rm -rf automation-snowflake-harness
                           git clone https://github.com/EC528-Fall-2024/automation-snowflake-harness.git
                           cd automation-snowflake-harness
+                          echo "Contents of cloned repository:"
+                          ls -R
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
@@ -52,7 +54,7 @@ pipeline:
                         script: |-
                           cd automation-snowflake-harness
                           python main.py
-                          cd automation-snowflake-harness/migrations
+                          cd migrations
                           
                           # Load environment variables from Harness secrets
                           export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
@@ -67,9 +69,13 @@ pipeline:
                           echo "Using changelog file: $latest_changelog"
                           
                           # Run Liquibase using the latest changelog
-                          liquibase --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          liquibase \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
                           --changeLogFile=$latest_changelog \
                           --driver=net.snowflake.client.jdbc.SnowflakeDriver \
+                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com" \
+                          --username=$SNOWFLAKE_USER \
+                          --password=$SNOWFLAKE_PASSWORD \
                           update
 
                     environmentVariables: []
