@@ -24,6 +24,7 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
+                          rm -rf automation-snowflake-harness
                           git clone https://github.com/EC528-Fall-2024/automation-snowflake-harness.git
                           cd automation-snowflake-harness
                     environmentVariables: []
