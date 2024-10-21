@@ -67,7 +67,11 @@ pipeline:
                           echo "Using changelog file: $latest_changelog"
                           
                           # Run Liquibase using the latest changelog
-                          liquibase --changeLogFile=$latest_changelog update
+                          liquibase --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --changeLogFile=$latest_changelog \
+                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
+                          update
+
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
