@@ -1,0 +1,53 @@
+2024-10-04 16:38:58,663 - INFO - Starting the migration process.
+2024-10-04 16:38:58,663 - INFO - Snowflake Credentials: {'user': 'EC528AUTOMATION', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'PUBLIC'}
+2024-10-04 16:38:58,663 - INFO - Connecting to Snowflake...
+2024-10-04 16:38:58,663 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.9.12, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-04 16:38:58,663 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-04 16:38:58,663 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-04 16:38:59,269 - INFO - Connection to Snowflake established successfully.
+2024-10-04 16:38:59,389 - INFO - Number of results in first chunk: 1
+2024-10-04 16:38:59,390 - INFO - Schema PUBLIC created successfully.
+2024-10-04 16:38:59,390 - INFO - closed
+2024-10-04 16:38:59,428 - INFO - No async queries seem to be running, deleting session
+2024-10-04 16:38:59,473 - INFO - Connecting to Snowflake...
+2024-10-04 16:38:59,473 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.9.12, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-04 16:38:59,474 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-04 16:38:59,474 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-04 16:38:59,762 - INFO - Connection to Snowflake established successfully.
+2024-10-04 16:38:59,886 - INFO - Number of results in first chunk: 3
+2024-10-04 16:38:59,983 - INFO - Number of results in first chunk: 0
+2024-10-04 16:39:00,054 - INFO - Number of results in first chunk: 0
+2024-10-04 16:39:00,054 - INFO - Successfully retrieved database objects.
+2024-10-04 16:39:00,054 - INFO - closed
+2024-10-04 16:39:00,083 - INFO - No async queries seem to be running, deleting session
+2024-10-04 16:39:00,155 - INFO - Total changesets generated: 1
+2024-10-04 16:39:00,157 - INFO - Changelog written to migrations/generated_changelog_20241004_163859.yaml
+2024-10-04 16:39:00,160 - INFO - Changelog validation successful. Total changesets: 1
+2024-10-04 16:39:00,160 - INFO - Changeset IDs:
+2024-10-04 16:39:00,160 - INFO -   create-table-PUBLIC-SCHEMA_VERSION
+2024-10-04 16:39:00,161 - INFO - Constructed Snowflake URL: jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=********&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC
+2024-10-04 16:39:00,161 - INFO - Starting Liquibase migration using changelog: migrations/generated_changelog_20241004_163859.yaml
+2024-10-04 16:39:00,184 - ERROR - Unexpected error during migration: [Errno 20] Not a directory: 'liquibase'
+Traceback (most recent call last):
+  File "/Users/rithvik/Documents/GithubProjects/automation-snowflake-harness/scripts/migration_manager.py", line 69, in run_migration
+    result = subprocess.run(check_command, capture_output=True, text=True)
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+NotADirectoryError: [Errno 20] Not a directory: 'liquibase'
+2024-10-04 16:39:00,187 - ERROR - Migration process failed: [Errno 20] Not a directory: 'liquibase'
+Traceback (most recent call last):
+  File "/Users/rithvik/Documents/GithubProjects/automation-snowflake-harness/main.py", line 65, in main
+    migration_manager.run_migration(changelog_file)
+  File "/Users/rithvik/Documents/GithubProjects/automation-snowflake-harness/scripts/migration_manager.py", line 69, in run_migration
+    result = subprocess.run(check_command, capture_output=True, text=True)
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+NotADirectoryError: [Errno 20] Not a directory: 'liquibase'
