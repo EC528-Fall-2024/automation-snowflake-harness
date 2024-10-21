@@ -63,6 +63,9 @@ pipeline:
                           export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
                           export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
                           export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
+
+                          # Run the Snowflake commands to set the database and schema
+                          snowsql -c my_connection -q "USE DATABASE $SNOWFLAKE_DATABASE; USE SCHEMA $SNOWFLAKE_SCHEMA;"
                           
                           # Find the most recent changelog file
                           latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
