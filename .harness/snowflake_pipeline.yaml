@@ -99,7 +99,6 @@ pipeline:
                     outputVariables: []
                     when:
                       stageStatus: always
-                      failure: true
                   timeout: 10m
         tags: {}
     - stage:
