@@ -63,9 +63,6 @@ pipeline:
                           export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
                           export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
                           export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
-
-                          # Run the Snowflake commands to set the database and schema
-                          snowsql -c my_connection -q "USE DATABASE $SNOWFLAKE_DATABASE; USE SCHEMA $SNOWFLAKE_SCHEMA;"
                           
                           # Find the most recent changelog file
                           latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
@@ -76,7 +73,7 @@ pipeline:
                           --classpath=/usr/local/lib/snowflake-jdbc.jar \
                           --changeLogFile=$latest_changelog \
                           --driver=net.snowflake.client.jdbc.SnowflakeDriver \
-                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com" \
+                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
                           update
