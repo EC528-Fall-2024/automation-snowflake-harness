@@ -77,7 +77,6 @@ pipeline:
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
                           update
-              # Add a finally step to release the lock in case of failure
               - step:
                   type: ShellScript
                   name: Liquibase Release Lock
@@ -99,7 +98,8 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                     when:
-                      failure: true  # Ensure it runs on failure too
+                      stageStatus: always
+                      failure: true
                   timeout: 10m
         tags: {}
     - stage:
