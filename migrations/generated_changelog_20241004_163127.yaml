@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-PUBLIC-SCHEMA_VERSION
+    author: dynamic-generator
+    changes:
+    - createTable:
+        schemaName: PUBLIC
+        tableName: SCHEMA_VERSION
+        columns:
+        - column:
+            name: id
+            type: INT
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+    rollback:
+    - dropTable:
+        schemaName: PUBLIC
+        tableName: SCHEMA_VERSION
+    preConditions:
+    - not:
+        tableExists:
+          schemaName: PUBLIC
+          tableName: SCHEMA_VERSION
