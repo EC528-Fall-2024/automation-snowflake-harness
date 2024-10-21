@@ -98,6 +98,7 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                     when:
+                      condition : true
                       stageStatus: always
                   timeout: 10m
         tags: {}
