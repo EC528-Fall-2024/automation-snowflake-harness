@@ -67,14 +67,6 @@ pipeline:
                           # Find the most recent changelog file
                           latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
                           echo "Using changelog file: $latest_changelog"
-
-                          liquibase \
-                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
-                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
-                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
-                          --username=$SNOWFLAKE_USER \
-                          --password=$SNOWFLAKE_PASSWORD \
-                          releaseLocks
                           
                           # Run Liquibase using the latest changelog
                           liquibase \
@@ -84,6 +76,7 @@ pipeline:
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
+                          --liquibase.databaseChangelogLockEnabled=false \
                           update
               - step:
                   type: ShellScript
