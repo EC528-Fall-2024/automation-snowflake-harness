@@ -69,7 +69,9 @@ pipeline:
                           echo "Using changelog file: $latest_changelog"
 
                           liquibase \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
+                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
                           releaseLocks
