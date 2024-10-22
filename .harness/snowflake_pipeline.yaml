@@ -70,12 +70,13 @@ pipeline:
                           
                           # Run Liquibase using the latest changelog
                           liquibase \
-                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar:/usr/local/lib/liquibase/lib/liquibase-nochangeloglock.jar \
                           --changeLogFile=$latest_changelog \
                           --driver=net.snowflake.client.jdbc.SnowflakeDriver \
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
+                          --logLevel=debug \
                           update
               - step:
                   type: ShellScript
