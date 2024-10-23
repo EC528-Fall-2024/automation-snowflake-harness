@@ -130,8 +130,8 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
-                          cd automation-snowflake-harness/liquibase
-                          snowsql -f deploy.sql
+                          #cd automation-snowflake-harness/liquibase
+                          #snowsql -f deploy.sql
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
