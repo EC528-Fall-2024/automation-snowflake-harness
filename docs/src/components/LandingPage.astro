@@ -10,7 +10,6 @@ import {
 import { type LandingPageObj } from '@/i18n/ui'
 
 const { t } = Astro.props as { t: LandingPageObj }
-
 const lang = Astro.url.pathname.split('/')[1] || DEFAULT_LANGUAGE_CODE
 ---
 

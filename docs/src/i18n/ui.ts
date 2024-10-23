@@ -14,7 +14,10 @@ export type LandingPageObj = {
   githubBtnText: string
 }
 
-export const LANDING_PAGE: LanguageObject<LandingPageObj> = {
+export const LANDING_PAGE: LanguageObject<{
+  description: string
+  getStartedBtnText: string
+  githubBtnText: string}> = {
   en: {
     description: 'Automate and streamline the management of Snowflake resources with CI/CD pipelines, leveraging Liquibase and Harness for secure and scalable deployments.',
     getStartedBtnText: 'Get started',
