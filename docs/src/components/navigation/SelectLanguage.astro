@@ -1,10 +1,8 @@
----
 import { LANGUAGES, type LanguageKeys } from '@/i18n/ui'
 import { DEFAULT_LANGUAGE_CODE } from '@/config'
 
 const langFromURL = Astro.url.pathname.split('/')[1] || DEFAULT_LANGUAGE_CODE
 const lang: LanguageKeys = langFromURL as LanguageKeys
----
 
 <div class="relative z-10">
   <button
