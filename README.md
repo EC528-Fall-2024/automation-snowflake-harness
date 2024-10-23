@@ -9,7 +9,7 @@
 | Rishi Dubey       | Mentor  | RDubey8@StateStreet.com                             |                |
 | James Colley      | Mentor  | JColley@StateStreet.com                             |                |
 | Amruth Niranjan   | Student | amruth@bu.edu                | amruth-sn      |
-| Hrishav Varma     | Student | hri@bu.edu                   |                |
+| Hrishav Varma     | Student | hri@bu.edu                   | VHri               |
 | Krish Shah        | Student | kshah26@bu.edu               | krish-shahh    |
 | Yuzhe Xu          | Student | yx8756a@bu.edu               |  yuzhexu       |
 | Rithvik Nakirikanti| Student |rithvikn@bu.edu               | rithvik213               |
