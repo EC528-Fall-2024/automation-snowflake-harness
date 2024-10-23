@@ -42,7 +42,7 @@ spec:
       restartPolicy: Always
       containers:
         # Delegate Container
-        - image: sebastienlee93/delegate-with-liquibase-python:latest  # <-- Use your custom image here
+        - image: sebastienlee93/delegate-with-liquibase-python:latest
           imagePullPolicy: Always
           name: delegate
           securityContext:
@@ -109,7 +109,7 @@ spec:
               value: "false"
 ---
 
-# Horizontal Pod Autoscaler (optional)
+# Horizontal Pod Autoscaler
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
