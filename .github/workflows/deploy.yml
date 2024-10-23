@@ -10,6 +10,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,13 +29,16 @@ jobs:
       - name: Build website
         run: npm run build
 
-      # Move contents of dist to docs
-      - name: Move build to docs
+      # Move contents of dist to docs root
+      - name: Move build to docs root
         run: |
-          rm -rf docs/*
-          mv docs/dist/* docs/
-          rm -rf docs/dist
-          touch docs/.nojekyll
+          rm -rf ../.temp
+          mkdir ../.temp
+          mv dist/* ../.temp/
+          rm -rf *
+          mv ../.temp/* ./
+          rm -rf ../.temp
+          touch .nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
