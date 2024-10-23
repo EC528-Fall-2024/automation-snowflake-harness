@@ -1,3 +1,4 @@
+---
 import HeadSeo from '@/components/HeadSeo.astro'
 import Nav from '@/components/navigation/Nav.astro'
 import { ViewTransitions } from 'astro:transitions'
@@ -15,6 +16,7 @@ import '@/styling/code.css'
 const { frontmatter } = Astro.props as {
   frontmatter?: Frontmatter
 }
+---
 
 <style is:global>
   body {

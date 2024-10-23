@@ -1,3 +1,5 @@
+---
+
 import Base from '@/layouts/Base.astro'
 import {
   GITHUB_REPO_URL,
@@ -10,6 +12,7 @@ import { type LandingPageObj } from '@/i18n/ui'
 const { t } = Astro.props as { t: LandingPageObj }
 
 const lang = Astro.url.pathname.split('/')[1] || DEFAULT_LANGUAGE_CODE
+---
 
 <Base>
   <div class="flex h-[calc(100dvh-80px)] items-center justify-center pb-20">

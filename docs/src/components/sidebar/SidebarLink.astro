@@ -1,8 +1,11 @@
+---
+
 import clsx from 'clsx'
 
 const { href, text } = Astro.props as { href: string; text: string }
 
 const isActive = Astro.url.href.includes(href)
+---
 
 <a
   class={clsx(
