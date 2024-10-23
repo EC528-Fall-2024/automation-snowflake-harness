@@ -88,6 +88,14 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
+                          # Load environment variables from Harness secrets
+                          export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
+                          export SNOWFLAKE_USER=<+secrets.getValue("SNOWFLAKE_USER")>
+                          export SNOWFLAKE_PASSWORD=<+secrets.getValue("SNOWFLAKE_PASSWORD")>
+                          export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
+                          export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
+                          export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
+
                           # Always release the lock after Liquibase operation
                           liquibase \
                           --classpath=/usr/local/lib/snowflake-jdbc.jar \
