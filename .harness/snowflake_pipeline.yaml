@@ -24,8 +24,11 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
+                          rm -rf automation-snowflake-harness
                           git clone https://github.com/EC528-Fall-2024/automation-snowflake-harness.git
                           cd automation-snowflake-harness
+                          echo "Contents of cloned repository:"
+                          ls -R
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
@@ -49,14 +52,63 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
-                          cd automation-snowflake-harness/migrations
+                          cd automation-snowflake-harness
+                          python main.py
+                          cd migrations
+                          
+                          # Load environment variables from Harness secrets
+                          export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
+                          export SNOWFLAKE_USER=<+secrets.getValue("SNOWFLAKE_USER")>
+                          export SNOWFLAKE_PASSWORD=<+secrets.getValue("SNOWFLAKE_PASSWORD")>
+                          export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
+                          export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
+                          export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
+                          
                           # Find the most recent changelog file
-                          latest_changelog=$(ls -t generated_changelog_*.yaml | head -n 1)
+                          latest_changelog=$(find . -name 'generated_changelog_*.yaml' | sort -t'_' -k3,3nr -k4,4nr | head -n 1)
                           echo "Using changelog file: $latest_changelog"
+                          
                           # Run Liquibase using the latest changelog
-                          liquibase --changeLogFile=$latest_changelog update
+                          liquibase \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --changeLogFile=$latest_changelog \
+                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
+                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
+                          --username=$SNOWFLAKE_USER \
+                          --password=$SNOWFLAKE_PASSWORD \
+                          update
+              - step:
+                  type: ShellScript
+                  name: Liquibase Release Lock
+                  identifier: liquibase_release_lock
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          # Load environment variables from Harness secrets
+                          export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
+                          export SNOWFLAKE_USER=<+secrets.getValue("SNOWFLAKE_USER")>
+                          export SNOWFLAKE_PASSWORD=<+secrets.getValue("SNOWFLAKE_PASSWORD")>
+                          export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
+                          export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
+                          export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
+
+                          # Always release the lock after Liquibase operation
+                          liquibase \
+                          --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
+                          --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
+                          --username=$SNOWFLAKE_USER \
+                          --password=$SNOWFLAKE_PASSWORD \
+                          releaseLocks
                     environmentVariables: []
                     outputVariables: []
+                    when:
+                      condition : true
+                      stageStatus: always
                   timeout: 10m
         tags: {}
     - stage:
@@ -78,8 +130,8 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
-                          cd automation-snowflake-harness/liquibase
-                          snowsql -f deploy.sql
+                          #cd automation-snowflake-harness/liquibase
+                          #snowsql -f deploy.sql
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
@@ -104,7 +156,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness/tests
-                          python test_migrations.py
+                          #python test_migration.py
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m

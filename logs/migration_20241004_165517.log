@@ -1,0 +1,81 @@
+2024-10-04 16:55:17,802 - INFO - Starting the migration process.
+2024-10-04 16:55:17,802 - INFO - Snowflake Credentials: {'user': 'EC528AUTOMATION', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'PUBLIC'}
+2024-10-04 16:55:17,802 - INFO - Connecting to Snowflake...
+2024-10-04 16:55:17,802 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.9.12, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-04 16:55:17,802 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-04 16:55:17,802 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-04 16:55:18,274 - INFO - Connection to Snowflake established successfully.
+2024-10-04 16:55:18,395 - INFO - Number of results in first chunk: 1
+2024-10-04 16:55:18,396 - INFO - Schema PUBLIC created successfully.
+2024-10-04 16:55:18,396 - INFO - closed
+2024-10-04 16:55:18,433 - INFO - No async queries seem to be running, deleting session
+2024-10-04 16:55:18,482 - INFO - Connecting to Snowflake...
+2024-10-04 16:55:18,482 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.9.12, Platform: macOS-10.16-x86_64-i386-64bit
+2024-10-04 16:55:18,483 - INFO - Connecting to GLOBAL Snowflake domain
+2024-10-04 16:55:18,483 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-04 16:55:18,801 - INFO - Connection to Snowflake established successfully.
+2024-10-04 16:55:19,020 - INFO - Number of results in first chunk: 3
+2024-10-04 16:55:19,320 - INFO - Number of results in first chunk: 0
+2024-10-04 16:55:19,377 - INFO - Number of results in first chunk: 0
+2024-10-04 16:55:19,377 - INFO - Successfully retrieved database objects.
+2024-10-04 16:55:19,377 - INFO - closed
+2024-10-04 16:55:19,410 - INFO - No async queries seem to be running, deleting session
+2024-10-04 16:55:19,462 - INFO - Total changesets generated: 1
+2024-10-04 16:55:19,464 - INFO - Changelog written to migrations/generated_changelog_20241004_165518.yaml
+2024-10-04 16:55:19,466 - INFO - Changelog validation successful. Total changesets: 1
+2024-10-04 16:55:19,466 - INFO - Changeset IDs:
+2024-10-04 16:55:19,466 - INFO -   create-table-PUBLIC-SCHEMA_VERSION
+2024-10-04 16:55:19,466 - INFO - Constructed Snowflake URL: jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=********&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC
+2024-10-04 16:55:19,466 - INFO - Starting Liquibase migration using changelog: migrations/generated_changelog_20241004_165518.yaml
+2024-10-04 16:55:23,634 - INFO - Running migration with command: liquibase --changeLogFile=migrations/generated_changelog_20241004_165518.yaml --url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC --defaultSchemaName=PUBLIC update
+2024-10-04 16:55:33,427 - ERROR - Error running Liquibase migration:
+Command: ['liquibase', '--changeLogFile=migrations/generated_changelog_20241004_165518.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']
+Return Code: 1
+STDOUT: 
+UPDATE SUMMARY
+Run:                          0
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            1
+
+
+STDERR: ####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ## 
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ## 
+##                                                ##
+####################################################
+Starting Liquibase at 16:55:24 using Java 21.0.2 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Running Changeset: migrations/generated_changelog_20241004_165518.yaml::create-table-PUBLIC-SCHEMA_VERSION::dynamic-generator
+ERROR: Exception Details
+ERROR: Exception Primary Class:  PreconditionFailedException
+ERROR: Exception Primary Reason:  Preconditions Failed
+ERROR: Exception Primary Source:  Snowflake 8.37.1
+
+Unexpected error running Liquibase: Migration failed for changeset migrations/generated_changelog_20241004_165518.yaml::create-table-PUBLIC-SCHEMA_VERSION::dynamic-generator:
+     Reason: 
+          migrations/generated_changelog_20241004_165518.yaml : Not precondition failed
+  - Caused by: Preconditions Failed
+
+For more information, please use the --log-level flag
+
+2024-10-04 16:55:33,427 - ERROR - Migration process failed: Command '['liquibase', '--changeLogFile=migrations/generated_changelog_20241004_165518.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/Users/rithvik/Documents/GithubProjects/automation-snowflake-harness/main.py", line 65, in main
+    migration_manager.run_migration(changelog_file)
+  File "/Users/rithvik/Documents/GithubProjects/automation-snowflake-harness/scripts/migration_manager.py", line 90, in run_migration
+    result = subprocess.run(update_command, check=True, capture_output=True, text=True)
+  File "/Users/rithvik/opt/anaconda3/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['liquibase', '--changeLogFile=migrations/generated_changelog_20241004_165518.yaml', '--url=jdbc:snowflake://euwmcnr-mhb16871.snowflakecomputing.com/?user=EC528AUTOMATION&password=Chesterfield4396@&warehouse=COMPUTE_WH&database=TEST&schema=PUBLIC', '--defaultSchemaName=PUBLIC', 'update']' returned non-zero exit status 1.

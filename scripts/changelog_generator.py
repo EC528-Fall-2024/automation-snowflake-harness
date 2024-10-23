@@ -42,7 +42,24 @@ def generate_unique_id(prefix, obj):
 
 def generate_changelog(objects):
     changelog = []
-    
+    changelog.append({
+        'changeSet': {
+            'id': 'create-template-warehouse',
+            'author': 'dynamic-generator',
+            'changes': [{
+                'sql': {
+                    'sql': """
+                    CREATE WAREHOUSE IF NOT EXISTS template_warehouse
+                    WAREHOUSE_SIZE = 'SMALL'
+                    AUTO_SUSPEND = 300
+                    AUTO_RESUME = TRUE
+                    INITIALLY_SUSPENDED = TRUE
+                    SCALING_POLICY = 'STANDARD';
+                    """
+                }
+            }]
+        }
+    })
     for table in objects['tables']:
         changelog.append({
             'changeSet': {
