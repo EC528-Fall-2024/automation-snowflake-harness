@@ -1,4 +1,3 @@
----
 import Search from '@/components/navigation/Search'
 import { type MarkdownInstance } from 'astro'
 import { type MarkdownRecord } from '@/types'
@@ -31,7 +30,6 @@ const getDocs = async () => {
 }
 
 const docs: MarkdownRecord[] = await getDocs()
----
 
 <button data-active="false" id="hamburger-btn" class="ml-6 hidden w800:inline">
   <svg
