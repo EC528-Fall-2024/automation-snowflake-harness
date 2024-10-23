@@ -1,4 +1,3 @@
----
 import { type Frontmatter } from '@/types'
 import { type MarkdownHeading } from 'astro'
 import type { LanguageKeys } from '@/i18n/ui'
@@ -17,7 +16,6 @@ const { frontmatter, headings } = Astro.props as {
   frontmatter: Frontmatter
   headings: MarkdownHeading[]
 }
----
 
 <Base frontmatter={frontmatter} lang={lang}>
   <Sidebar lang={lang} />
