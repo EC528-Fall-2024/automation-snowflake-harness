@@ -91,6 +91,7 @@ pipeline:
                           # Always release the lock after Liquibase operation
                           liquibase \
                           --classpath=/usr/local/lib/snowflake-jdbc.jar \
+                          --driver=net.snowflake.client.jdbc.SnowflakeDriver \
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
