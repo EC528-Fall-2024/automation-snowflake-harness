@@ -9,7 +9,7 @@
 | Rishi Dubey       | Mentor  | RDubey8@StateStreet.com                             |                |
 | James Colley      | Mentor  | JColley@StateStreet.com                             |                |
 | Amruth Niranjan   | Student | amruth@bu.edu                | amruth-sn      |
-| Hrishav Varma     | Student | hri@bu.edu                   |                |
+| Hrishav Varma     | Student | hri@bu.edu                   | VHri               |
 | Krish Shah        | Student | kshah26@bu.edu               | krish-shahh    |
 | Yuzhe Xu          | Student | yx8756a@bu.edu               |  yuzhexu       |
 | Rithvik Nakirikanti| Student |rithvikn@bu.edu               | rithvik213               |
@@ -124,8 +124,7 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 ### **Sprint 3**:
 - Add user and role management features.
 - Test security features, including credential management.
-- [Sprint 3 Video](link_to_sprint_3_video) | [Sprint 3 Slides](https://docs.google.com/presentation/d/1oo64tsNJ4J1BjkL7lLYIwxzd5AwXJsT1zKz8GyOEZNY/edit?usp=sharing)
-
+- [Sprint 3 Video](https://drive.google.com/file/d/1MlyRKoTGYykNP8E03Tp-Z1xPtsGQeNaK/view?usp=sharing) | [Sprint 3 Slides](https://docs.google.com/presentation/d/1oo64tsNJ4J1BjkL7lLYIwxzd5AwXJsT1zKz8GyOEZNY/edit?usp=sharing)
 ### **Sprint 4**:
 - Iterative testing and finalization of features.
 <!--

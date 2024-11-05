@@ -9,16 +9,12 @@ import SidebarLinks from '@/components/sidebar/SidebarLinks.astro'
 
 const langFromURL = Astro.url.pathname.split('/')[1] || DEFAULT_LANGUAGE_CODE
 const lang: LanguageKeys = langFromURL as LanguageKeys
-
 const getDocs = async () => {
   let docs: null | MarkdownInstance<any>[] = null
 
   switch (lang) {
     case 'en':
       docs = await Astro.glob(`@/pages/en/**`)
-      break
-    case 'sr':
-      docs = await Astro.glob(`@/pages/sr/**`)
       break
   }
   return docs.map((doc: MarkdownInstance<any>) => {
@@ -86,7 +82,7 @@ const docs: MarkdownRecord[] = await getDocs()
 >
   <div class="w-full px-8 w500:px-5">
     <div class="flex h-11 w-full items-center gap-10 w400:justify-between">
-      <Search docs={docs} lang={lang} client:only />
+      <Search docs={docs} lang={lang} client:only="react" />
 
       <a class="hidden w500:inline" target="_blank" href={GITHUB_REPO_URL}>
         <svg

@@ -4,7 +4,6 @@ import {
   GET_STARTED_LINK,
   PROJECT_NAME,
   DEFAULT_LANGUAGE_CODE,
-  SINGLE_LANGUAGE,
 } from '@/config'
 
 import { type LanguageKeys, NAV } from '@/i18n/ui'
@@ -61,7 +60,7 @@ const docs: MarkdownRecord[] = await getDocs()
       </a>
 
       <div class="z-20 w800:hidden">
-        <Search docs={docs} lang={lang} client:only />
+        <Search docs={docs} lang={lang} client:only="react" />
       </div>
     </div>
 

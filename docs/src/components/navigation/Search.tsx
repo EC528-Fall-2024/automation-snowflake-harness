@@ -30,7 +30,7 @@ export default function Search({
       setIsOverlayActive(false)
     }
   }
-
+  const currentLang = SEARCH[lang] ? lang : 'en';
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value.trim()
 
@@ -38,14 +38,14 @@ export default function Search({
       setMatchedItems([])
       if (message) setMessage(null)
     } else if (inputValue.length > 0 && inputValue.length < 3) {
-      setMessage(SEARCH[lang].keepTyping)
+      setMessage(SEARCH[currentLang].keepTyping)
     } else {
       const searchResult: FuseResult<MarkdownRecord>[] = fuse.search(inputValue)
       const items: MarkdownRecord[] = searchResult.map((result) => result.item)
       setMatchedItems(items)
 
       if (items.length === 0) {
-        setMessage(SEARCH[lang].noResults)
+        setMessage(SEARCH[currentLang].noResults)
       } else {
         setMessage(null)
       }
@@ -75,7 +75,7 @@ export default function Search({
           ></path>
         </svg>
 
-        <p>{SEARCH[lang].search}</p>
+        <p>{SEARCH[currentLang].search}</p>
       </button>
       <button
         onClick={() => {
@@ -119,13 +119,13 @@ export default function Search({
             <input
               onChange={handleInputChange}
               className="w-full rounded-base bg-transparent p-[10px] px-5 text-xl outline outline-1 outline-black/20 transition-[outline] focus:outline-black/50 dark:outline-white/20 dark:focus:outline-white/50 w600:text-lg"
-              placeholder={SEARCH[lang].search}
+              placeholder={SEARCH[currentLang].search}
               type="text"
             />
 
             {matchedItems.length > 0 && !message && (
               <p className="mt-[10px] w600:text-sm">
-                {matchedItems.length} {SEARCH[lang].results}
+                {matchedItems.length} {SEARCH[currentLang].results}
               </p>
             )}
           </div>
