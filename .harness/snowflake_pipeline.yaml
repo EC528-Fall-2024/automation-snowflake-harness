@@ -55,7 +55,7 @@ pipeline:
                           cd automation-snowflake-harness
                           python main.py
                           cd migrations
-                          
+
                           # Load environment variables from Harness secrets
                           export SNOWFLAKE_ACCOUNT=<+secrets.getValue("SNOWFLAKE_ACCOUNT")>
                           export SNOWFLAKE_USER=<+secrets.getValue("SNOWFLAKE_USER")>
@@ -63,11 +63,11 @@ pipeline:
                           export SNOWFLAKE_WAREHOUSE=<+secrets.getValue("SNOWFLAKE_WAREHOUSE")>
                           export SNOWFLAKE_DATABASE=<+secrets.getValue("SNOWFLAKE_DATABASE")>
                           export SNOWFLAKE_SCHEMA=<+secrets.getValue("SNOWFLAKE_SCHEMA")>
-                          
+
                           # Find the most recent changelog file
                           latest_changelog=$(find . -name 'generated_changelog_*.yaml' | sort -t'_' -k3,3nr -k4,4nr | head -n 1)
                           echo "Using changelog file: $latest_changelog"
-                          
+
                           # Run Liquibase using the latest changelog
                           liquibase \
                           --classpath=/usr/local/lib/snowflake-jdbc.jar \
@@ -107,7 +107,7 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                     when:
-                      condition : true
+                      condition: true
                       stageStatus: always
                   timeout: 10m
         tags: {}
@@ -156,7 +156,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness/tests
-                          #python test_migration.py
+                          python test_migration.py
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
