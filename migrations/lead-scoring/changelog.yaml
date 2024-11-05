@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: krish
+      changes:
+        - include:
+            file: V1__create_warehouse_database_schema.sql
+
+  - changeSet:
+      id: 2
+      author: krish
+      changes:
+        - include:
+            file: V2__setup_analyst_role.sql
+
+  - changeSet:
+      id: 3
+      author: krish
+      changes:
+        - include:
+            file: V3__create_customer_table.sql
+
+  - changeSet:
+      id: 4
+      author: krish
+      changes:
+        - include:
+            file: V4__update_total_order_value_long_term.sql
+
+  - changeSet:
+      id: 5
+      author: krish
+      changes:
+        - include:
+            file: V5__update_total_order_value_recent.sql
+
+  - changeSet:
+      id: 6
+      author: krish
+      changes:
+        - include:
+            file: V6__verify_data.sql
+
+  - changeSet:
+      id: 7
+      author: krish
+      changes:
+        - include:
+            file: V7__create_training_data_view.sql
+
+  - changeSet:
+      id: 8
+      author: krish
+      changes:
+        - include:
+            file: V8__verify_training_view.sql
+
+  - changeSet:
+      id: 9
+      author: krish
+      changes:
+        - include:
+            file: V9__create_classification_model.sql
+
+  - changeSet:
+      id: 10
+      author: krish
+      changes:
+        - include:
+            file: V10__show_classification_model.sql
+
+  - changeSet:
+      id: 11
+      author: krish
+      changes:
+        - include:
+            file: V11__run_predictions.sql
+
+  - changeSet:
+      id: 12
+      author: krish
+      changes:
+        - include:
+            file: V12__verify_predictions.sql
