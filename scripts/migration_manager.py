@@ -171,15 +171,14 @@ class MigrationManager:
                 'rollback',
                 tag
             ]
-
-            result = subprocess.run(rollback_command, check=True, capture_output=True, text=True)
+            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             logging.info("Rollback Output:\n%s", result.stdout)
             if result.stderr:
                 logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
 
         except subprocess.CalledProcessError as e:
             logging.error("Error executing rollback:\nCommand: %s\nReturn Code: %d\nSTDOUT: %s\nSTDERR: %s", 
-                        e.cmd, e.returncode, e.stdout, e.stderr)
+                      e.cmd, e.returncode, e.stdout, e.stderr)
             raise
         except Exception as e:
             logging.error("Unexpected error during rollback: %s", str(e), exc_info=True)
