@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: create-template-warehouse
+    author: dynamic-generator
+    changes:
+    - sql:
+        sql: "\n                    CREATE WAREHOUSE IF NOT EXISTS template_warehouse\n\
+          \                    WAREHOUSE_SIZE = 'SMALL'\n                    AUTO_SUSPEND\
+          \ = 300\n                    AUTO_RESUME = TRUE\n                    INITIALLY_SUSPENDED\
+          \ = TRUE\n                    SCALING_POLICY = 'STANDARD';\n           \
+          \         "
