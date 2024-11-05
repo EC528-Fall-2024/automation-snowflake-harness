@@ -1,0 +1,36 @@
+2024-11-05 12:32:27,659 - INFO - Starting the migration process.
+2024-11-05 12:32:27,660 - INFO - Snowflake Credentials: {'user': 'krish', 'password': '********', 'account': 'euwmcnr-mhb16871', 'warehouse': 'COMPUTE_WH', 'database': 'TEST', 'schema': 'PUBLIC'}
+2024-11-05 12:32:27,660 - INFO - Connecting to Snowflake...
+2024-11-05 12:32:27,660 - INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.10.9, Platform: macOS-10.16-x86_64-i386-64bit
+2024-11-05 12:32:27,660 - INFO - Connecting to GLOBAL Snowflake domain
+2024-11-05 12:32:27,660 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-11-05 12:32:28,075 - ERROR - Failed to connect to Snowflake: 250001 (08001): None: Failed to connect to DB: euwmcnr-mhb16871.snowflakecomputing.com:443. Incorrect username or password was specified.
+2024-11-05 12:32:28,075 - ERROR - Migration process failed: 250001 (08001): None: Failed to connect to DB: euwmcnr-mhb16871.snowflakecomputing.com:443. Incorrect username or password was specified.
+Traceback (most recent call last):
+  File "/Users/krish/Desktop/BU/Fall 2024/EC528/automation-snowflake-harness/main.py", line 48, in main
+    create_schema(SNOWFLAKE_CREDENTIALS['schema'])
+  File "/Users/krish/Desktop/BU/Fall 2024/EC528/automation-snowflake-harness/scripts/snowflake_manager.py", line 32, in create_schema
+    conn = connect_to_snowflake()
+  File "/Users/krish/Desktop/BU/Fall 2024/EC528/automation-snowflake-harness/scripts/snowflake_manager.py", line 11, in connect_to_snowflake
+    conn = snowflake.connector.connect(
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+    return SnowflakeConnection(**kwargs)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/connection.py", line 456, in __init__
+    self.connect(**kwargs)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/connection.py", line 771, in connect
+    self.__open_connection()
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/connection.py", line 1099, in __open_connection
+    self.authenticate_with_retry(self.auth_class)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/connection.py", line 1386, in authenticate_with_retry
+    self._authenticate(auth_instance)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/connection.py", line 1414, in _authenticate
+    auth.authenticate(
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/auth/_auth.py", line 401, in authenticate
+    Error.errorhandler_wrapper(
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 284, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 342, in hand_to_other_handler
+    connection.errorhandler(connection, cursor, error_class, error_value)
+  File "/Users/krish/anaconda3/lib/python3.10/site-packages/snowflake/connector/errors.py", line 215, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.DatabaseError: 250001 (08001): None: Failed to connect to DB: euwmcnr-mhb16871.snowflakecomputing.com:443. Incorrect username or password was specified.
