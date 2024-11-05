@@ -66,9 +66,9 @@ class MigrationManager:
                 'status'
             ]
 
-            result = subprocess.run(check_command, capture_output=True, text=True)
+            result = subprocess.run(check_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             if "does not exist" in result.stderr:
-                logging.info("Liquibase changelog table does not exist. Running initial setup.")
+                logging.info("Liquibase changelog table does not exist. Running initial setup.\n", result.stdout)
                 init_command = [
                     'liquibase',
                     f'--url={self.snowflake_url}',
@@ -87,7 +87,7 @@ class MigrationManager:
 
             logging.info(f"Running migration with command: {' '.join(update_command)}")
             
-            result = subprocess.run(update_command, check=True, capture_output=True, text=True)
+            result = subprocess.run(update_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             
             logging.info("Migration Output:\n%s", result.stdout)
             if result.stderr:
@@ -117,7 +117,7 @@ class MigrationManager:
                 'status'
             ]
 
-            result = subprocess.run(status_command, check=True, capture_output=True, text=True)
+            result = subprocess.run(status_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             logging.info("Migration Verification Output:\n%s", result.stdout)
 
             if "is up to date" in result.stdout:
@@ -145,7 +145,7 @@ class MigrationManager:
                 str(count)
             ]
 
-            result = subprocess.run(rollback_command, check=True, capture_output=True, text=True)
+            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             logging.info("Rollback Output:\n%s", result.stdout)
             if result.stderr:
                 logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
