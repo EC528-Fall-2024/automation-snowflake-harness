@@ -66,7 +66,7 @@ class MigrationManager:
                 'status'
             ]
 
-            result = subprocess.run(check_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(check_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             if "does not exist" in result.stderr:
                 logging.info("Liquibase changelog table does not exist. Running initial setup.\n", result.stdout)
                 init_command = [
@@ -87,7 +87,7 @@ class MigrationManager:
 
             logging.info(f"Running migration with command: {' '.join(update_command)}")
             
-            result = subprocess.run(update_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(update_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             
             logging.info("Migration Output:\n%s", result.stdout)
             if result.stderr:
@@ -117,7 +117,7 @@ class MigrationManager:
                 'status'
             ]
 
-            result = subprocess.run(status_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(status_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             logging.info("Migration Verification Output:\n%s", result.stdout)
 
             if "is up to date" in result.stdout:
@@ -145,7 +145,7 @@ class MigrationManager:
                 str(count)
             ]
 
-            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             logging.info("Rollback Output:\n%s", result.stdout)
             if result.stderr:
                 logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
@@ -171,7 +171,7 @@ class MigrationManager:
                 'rollback',
                 tag
             ]
-            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(rollback_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             logging.info("Rollback Output:\n%s", result.stdout)
             if result.stderr:
                 logging.warning("Rollback Warnings/Errors:\n%s", result.stderr)
