@@ -126,13 +126,17 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - Test security features, including credential management.
 - [Sprint 3 Video](https://drive.google.com/file/d/1MlyRKoTGYykNP8E03Tp-Z1xPtsGQeNaK/view?usp=sharing) | [Sprint 3 Slides](https://docs.google.com/presentation/d/1oo64tsNJ4J1BjkL7lLYIwxzd5AwXJsT1zKz8GyOEZNY/edit?usp=sharing)
 ### **Sprint 4**:
-- Iterative testing and finalization of features.
-<!--
-- [Sprint 4 Video](link_to_sprint_4_video) | [Sprint 4 Slides](link_to_sprint_4_slides)
--->
+- Automation of Snowflake Warehouse Scaling.
+- Unit Testing and Pipeline Testing
+- Snowflake Training and Integration
+- Snowflake Cortex Demo
+- [Sprint 4 Video](https://drive.google.com/file/d/1ljrr8xlniqnSNjIbKzDZrL4hju8Yl5at/view?usp=sharing) | [Sprint 4 Slides](https://docs.google.com/presentation/d/1BbEi-MSP-O3caEmN2Q2xDliHprDnXxBVlXpTcVVYS3g/edit?usp=sharing)
+
 
 ### **Sprint 5**:
-- Complete documentation, final presentation preparation, and project handover.
+- Create AI/ML Analysis Dashboard
+- Implement Data Quality Checks in Pipeline and Testing
+- Complete documentation, pinal presentation preparation, and project handover.
 <!--
 - [Sprint 5 Video](link_to_sprint_5_video) | [Sprint 5 Slides](link_to_sprint_5_slides)
 -->
