@@ -135,6 +135,7 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 
 ### **Sprint 5**:
 - Create AI/ML Analysis Dashboard
+- Creat CLI make batter user experiences
 - Implement Data Quality Checks in Pipeline and Testing
 - Complete documentation, pinal presentation preparation, and project handover.
 <!--
