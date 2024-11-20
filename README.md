@@ -137,6 +137,6 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - Create a CLI for any user to integrate this pipeline with their general use cases
 - Implement Harness API calls, ensuring data quality at every stage of pipeline
 - Complete documentation, create project article and publish to Medium, and build a network
-<!--
+
 - [Sprint 5 Video][link_to_sprint_5_video](https://drive.google.com/file/d/1DSwadtQEzQR0N0LV9LPPTnvupUkuFL-B/view?usp=drive_link) | [Sprint 5 Slides](https://docs.google.com/presentation/d/1Vw8HhjRABkKVcA8WRRrBYlEDu-vn3-4ze1cFHg0mvqo/edit?usp=sharing) | [Medium Article](https://medium.com/@rithvik213/automation-of-snowflake-resource-deployment-using-harness-c55eb20e78ba) | [Snowpilot GitHub Repository](https://github.com/amruth-sn/snowpilot)
--->
+
