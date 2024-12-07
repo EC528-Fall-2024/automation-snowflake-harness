@@ -1,5 +1,8 @@
 import yaml
 import logging
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from scripts.snowflake_manager import connect_to_snowflake
 
 def get_database_objects():

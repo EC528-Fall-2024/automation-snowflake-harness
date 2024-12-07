@@ -2,6 +2,10 @@ import logging
 import subprocess
 import os
 import yaml
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from config.settings import SNOWFLAKE_CREDENTIALS
 
 class MigrationManager:

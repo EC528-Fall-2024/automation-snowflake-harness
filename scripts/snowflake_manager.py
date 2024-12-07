@@ -1,5 +1,8 @@
 import logging
 import snowflake.connector
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config.settings import SNOWFLAKE_CREDENTIALS
 
 def connect_to_snowflake():
