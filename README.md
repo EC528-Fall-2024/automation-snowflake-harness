@@ -22,13 +22,14 @@ This project focuses on automating the deployment and management of Snowflake re
 
 ## **1. Vision and Goals of the Project**
 
-The project aims to provide an automated, repeatable, and scalable solution for managing Snowflake resources. By integrating Liquibase and Harness, this solution will enable teams to deploy database changes and resource configurations with minimal manual intervention. The automation will improve deployment consistency, reduce errors, and ensure secure and auditable management of Snowflake environments.
+The project aims to deliver an automated, secure, and efficient pipeline for managing Snowflake resources, scalable to diverse workloads. By integrating Liquibase and Harness, this solution will enable teams to deploy database changes and resource configurations with minimal manual intervention. The automation will improve deployment consistency, reduce errors, and ensure secure and auditable management of Snowflake environments.
 
 Key goals:
-- Automate the deployment of Snowflake resources through CI/CD pipelines.
-- Implement a robust version control system for database migrations using Liquibase.
+- Automate Snowflake resource deployments via CI/CD pipelines.
+- Establish version control system for database migrations using Liquibase.
 - Ensure secure and role-based access control for Snowflake resources.
 - Develop a scalable and easy-to-manage pipeline using Harness.
+- Build CLI tools to generalize the solution for broader adoption.
 
 ---
 
@@ -61,10 +62,11 @@ The project will primarily serve the following user personas:
   - Users and Roles
   - Data Warehouses
 - CI/CD pipeline configuration using Harness for managing different deployment environments (development, staging, production).
-- Secure handling of credentials and role-based access control.
+- Secure handling of credentials with role-based access control policies.
+- Integration of Snowflake Cortex and ML capabilities for classification and forecasting.
 
 ### **Out-of-Scope Features**:
-- Real-time data streaming to Snowflake.
+- Real-time data streaming or ingestion processes.
 - Data integration solutions beyond database and resource management.
 
 ---
@@ -72,7 +74,7 @@ The project will primarily serve the following user personas:
 ## **4. Solution Concept**
 
 ### **Global Architectural Structure of the Project**:
-The solution revolves around leveraging Liquibase to manage Snowflake database migrations and using Harness to orchestrate the entire CI/CD process. The key components include:
+The solution revolves around leveraging Liquibase to manage Snowflake database migrations and using Harness to orchestrate automated CI/CD workflows. The key components include:
 - **Liquibase**: Manages version-controlled SQL migration scripts for Snowflake resources.
 - **Harness**: Orchestrates the CI/CD pipeline, automatically triggering deployments upon changes to the codebase.
 - **Snowflake**: The target data warehouse environment where databases, schemas, and user roles will be managed.
@@ -112,31 +114,37 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 
 ### **Sprint 1**:
 - Understanding Project Details
-- Creating System Architecture Diagram
-- Initial setup of the pipeline architecture and creation of basic Liquibase migration scripts for database and schema management.
+- Defined system architecture and tools and created the System Architecture Diagram
+- Initial setup of the pipeline architecture.
+- Designed initial Liquibase migration scripts for database and schema management and implemented logging.
 - [Sprint 1 Video](https://drive.google.com/drive/folders/1FYhqfLBLhWEPeXGALiEiEtfvOnB7ttHl?usp=sharing) | [Sprint 1 Slides](https://docs.google.com/presentation/d/1gbFB89ISR1-bjAJkVJ8YOSL3uXDYEvGVyaydHF2R1Cs/edit?usp=sharing)
 
 ### **Sprint 2**:
 - Complete the first fully functional CI/CD pipeline for Snowflake, integrating Liquibase with Harness.
-
+- Integrated Git version control for automated deployments.
+- Configured rollback mechanisms and developed unit tests for migration rollbacks.
 - [Sprint 2 Video](https://drive.google.com/drive/folders/1_muHJiXmQ-1mgOg3jnMmuH9rbIDCQsTb?usp=sharing) | [Sprint 2 Slides](https://docs.google.com/presentation/d/1ZELijHprziXk3Q5UXp_wHYXuJceKIPzLYCy5MiPF_Ik/edit?usp=sharing)
 
 ### **Sprint 3**:
-- Add user and role management features.
-- Test security features, including credential management.
+- Implemented Role-Based Access Control (RBAC) for secure credential management.
+- Created a template warehouse and integrated its scaling with CI/CD pipelines.
+- Created comprehensive documentation for the users of the project.
 - [Sprint 3 Video](https://drive.google.com/file/d/1MlyRKoTGYykNP8E03Tp-Z1xPtsGQeNaK/view?usp=sharing) | [Sprint 3 Slides](https://docs.google.com/presentation/d/1oo64tsNJ4J1BjkL7lLYIwxzd5AwXJsT1zKz8GyOEZNY/edit?usp=sharing)
+- 
 ### **Sprint 4**:
-- Automation of Snowflake Warehouse Scaling.
-- Unit Testing and Pipeline Testing
-- Snowflake Training and Integration
-- Snowflake Cortex Demo
+- Automated Snowflake warehouse scaling with scripts.
+- Conducted unit and pipeline testing with large public datasets.
+- Researched and integrated AI/ML features, including Cortex and Snowflake ML Studio.
+- Delivered a Snowflake Cortex demo and team training on Snowflake Quickstart tutorials.
 - [Sprint 4 Video](https://drive.google.com/file/d/1ljrr8xlniqnSNjIbKzDZrL4hju8Yl5at/view?usp=sharing) | [Sprint 4 Slides](https://docs.google.com/presentation/d/1BbEi-MSP-O3caEmN2Q2xDliHprDnXxBVlXpTcVVYS3g/edit?usp=sharing)
 
-
 ### **Sprint 5**:
-- Create a CLI for any user to integrate this pipeline with their general use cases
-- Implement Harness API calls, ensuring data quality at every stage of pipeline
-- Complete documentation, create project article and publish to Medium, and build a network
-
+- Created a CLI tool for any users to integrate this pipeline with their general use cases.
+- Efforts to enhance the visibility of the project - Published a Medium article and promoted the project on forums.
+- Enhanced documentation with starting and troubleshooting steps.
 - [Sprint 5 Video](https://drive.google.com/file/d/1DSwadtQEzQR0N0LV9LPPTnvupUkuFL-B/view?usp=drive_link) | [Sprint 5 Slides](https://docs.google.com/presentation/d/1Vw8HhjRABkKVcA8WRRrBYlEDu-vn3-4ze1cFHg0mvqo/edit?usp=sharing) | [Medium Article](https://medium.com/@rithvik213/automation-of-snowflake-resource-deployment-using-harness-c55eb20e78ba) | [Snowpilot GitHub Repository](https://github.com/amruth-sn/snowpilot)
+
+### **Final Presentation**:
+- 
+- [Final Demo Video]() | [Final Demo Slides]()
 
