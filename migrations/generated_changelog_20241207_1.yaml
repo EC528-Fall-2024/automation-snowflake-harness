@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-test-table
+      author: test-author
+      changes:
+        - createTable:
+            schemaName: TEST_SCHEMA
+            tableName: test_table
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
