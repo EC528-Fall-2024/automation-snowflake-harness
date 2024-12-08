@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-test-table
-      author: krish
+      author: dynamic-generator
       changes:
         - createTable:
             schemaName: PUBLIC
