@@ -1,0 +1,20 @@
+databaseChangeLog:
+- changeSet:
+    id: create-test-table
+    author: dynamic-generator
+    changes:
+    - createTable:
+        schemaName: PUBLIC
+        tableName: test_rollback_table
+        columns:
+        - column:
+            name: id
+            type: INT
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+    rollback:
+    - dropTable:
+        schemaName: PUBLIC
+        tableName: test_rollback_table

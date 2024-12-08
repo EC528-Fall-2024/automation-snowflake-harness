@@ -63,26 +63,7 @@ def generate_changelog(objects):
             }]
         }
     })
-    # Create Test Table changeset using SQL with IF NOT EXISTS
-    changelog.append({
-        'changeSet': {
-            'id': 'create-test-table',
-            'author': 'dynamic-generator',
-            'changes': [{
-                'sql': {
-                    'sql': """
-                    CREATE TABLE IF NOT EXISTS PUBLIC.test_rollback_table (
-                        id INT PRIMARY KEY NOT NULL,
-                        name VARCHAR(255)
-                    );
-                    """
-                }
-            }],
-            'rollback': [{
-                'sql': "DROP TABLE IF EXISTS PUBLIC.test_rollback_table;"
-            }]
-        }
-    })
+   
     for table in objects['tables']:
         changelog.append({
             'changeSet': {
