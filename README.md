@@ -18,6 +18,10 @@
 
 This project focuses on automating the deployment and management of Snowflake resources using CI/CD pipelines, specifically leveraging Liquibase for database migrations and Harness for orchestration. The goal is to streamline the creation, modification, and deletion of key Snowflake resources, including databases, schemas, users, roles, and data warehouses, in a secure and scalable manner.
 
+## **Getting Started**
+
+Instructions for setting up and using the Automation of Snowflake Resource Deployment project can be found on the [documentation website](https://snowflake-docs.vercel.app/en/getting-started).
+
 ---
 
 ## **1. Vision and Goals of the Project**
@@ -152,5 +156,5 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - Integrated dynamic warehouse scaling scripts into CI/CD pipelines.
 - Delivered comprehensive user guides and troubleshooting documentation.  
 - Developed a reusable CLI for external user adoption and published a Medium article.  
-- [Final Demo Video](https://drive.google.com/file/d/1ZgehYCQYnf8o8xrB6hnhTiNtBHPzGN2n/view?usp=drive_link) | [Final Demo Slides](https://docs.google.com/presentation/d/1nT__ACN5W7-cCsjkEUlcT3UD0h14o3dkw1A60lff3Fg/edit?usp=sharing)
+- [Final Demo Video](https://drive.google.com/file/d/1ZgehYCQYnf8o8xrB6hnhTiNtBHPzGN2n/view?usp=drive_link) | [Final Demo Slides](https://docs.google.com/presentation/d/1nT__ACN5W7-cCsjkEUlcT3UD0h14o3dkw1A60lff3Fg/edit?usp=sharing) | [Documentation](https://snowflake-docs.vercel.app/)
 
