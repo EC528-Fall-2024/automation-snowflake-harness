@@ -64,44 +64,56 @@ def generate_changelog(objects):
         }
     })
     changelog.append({
-        'changeSet': {
-            'id': 'create-test-table',
-            'author': 'dynamic-generator',
-            'changes': [{
-                'createTable': {
-                    'schemaName': 'PUBLIC',  
-                    'tableName': 'test_rollback_table',  
-                    'columns': [
-                        {
-                            'column': {
-                                'name': 'id',
-                                'type': 'INT',
-                                'constraints': {
-                                    'primaryKey': True,
-                                    'nullable': False
-                                }
-                            }
-                        },
-                        {
-                            'column': {
-                                'name': 'name',
-                                'type': 'VARCHAR(255)',
-                                'constraints': {
-                                    'nullable': True
-                                }
+    'changeSet': {
+        'id': 'create-test-table',
+        'author': 'dynamic-generator',
+        'preconditions': [
+            {
+                'not': [
+                    {
+                        'tableExists': {
+                            'schemaName': 'PUBLIC',
+                            'tableName': 'test_rollback_table'
+                        }
+                    }
+                ]
+            }
+        ],
+        'changes': [{
+            'createTable': {
+                'schemaName': 'PUBLIC',  
+                'tableName': 'test_rollback_table',  
+                'columns': [
+                    {
+                        'column': {
+                            'name': 'id',
+                            'type': 'INT',
+                            'constraints': {
+                                'primaryKey': True,
+                                'nullable': False
                             }
                         }
-                    ]
-                }
-            }],
-            'rollback': [{
-                'dropTable': {
-                    'schemaName': 'PUBLIC',
-                    'tableName': 'test_rollback_table'
-                }
-            }]
-        }
-    })
+                    },
+                    {
+                        'column': {
+                            'name': 'name',
+                            'type': 'VARCHAR(255)',
+                            'constraints': {
+                                'nullable': True
+                            }
+                        }
+                    }
+                ]
+            }
+        }],
+        'rollback': [{
+            'dropTable': {
+                'schemaName': 'PUBLIC',
+                'tableName': 'test_rollback_table'
+            }
+        }]
+    }
+})
     for table in objects['tables']:
         changelog.append({
             'changeSet': {
