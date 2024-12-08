@@ -76,7 +76,7 @@ pipeline:
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
-                          update
+                          rollbackCount 1
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
