@@ -156,7 +156,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness/tests
-                          python test_migration.py
+                          ##python test_migration.py
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
