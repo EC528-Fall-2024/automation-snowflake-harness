@@ -145,6 +145,12 @@ The solution revolves around leveraging Liquibase to manage Snowflake database m
 - [Sprint 5 Video](https://drive.google.com/file/d/1DSwadtQEzQR0N0LV9LPPTnvupUkuFL-B/view?usp=drive_link) | [Sprint 5 Slides](https://docs.google.com/presentation/d/1Vw8HhjRABkKVcA8WRRrBYlEDu-vn3-4ze1cFHg0mvqo/edit?usp=sharing) | [Medium Article](https://medium.com/@rithvik213/automation-of-snowflake-resource-deployment-using-harness-c55eb20e78ba) | [Snowpilot GitHub Repository](https://github.com/amruth-sn/snowpilot)
 
 ### **Final Presentation**:
-- 
-- [Final Demo Video]() | [Final Demo Slides]()
+- Automated Snowflake resource deployment using Liquibase and Harness.  
+- Built CI/CD pipelines with Git integration, rollback mechanisms, and automated changelogs. 
+- Enforced secure credential management with Role-Based Access Control (RBAC).  
+- Conducted unit tests and validated pipeline performance using large public datasets.
+- Integrated dynamic warehouse scaling scripts into CI/CD pipelines.
+- Delivered comprehensive user guides and troubleshooting documentation.  
+- Developed a reusable CLI for external user adoption and published a Medium article.  
+- [Final Demo Video](https://drive.google.com/file/d/1ZgehYCQYnf8o8xrB6hnhTiNtBHPzGN2n/view?usp=drive_link) | [Final Demo Slides](https://docs.google.com/presentation/d/1nT__ACN5W7-cCsjkEUlcT3UD0h14o3dkw1A60lff3Fg/edit?usp=sharing)
 
