@@ -53,7 +53,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness
-                          python main.py
+                          ##python main.py
                           cd migrations
 
                           # Load environment variables from Harness secrets
@@ -76,7 +76,7 @@ pipeline:
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
-                          rollbackCount 1
+                          update
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
