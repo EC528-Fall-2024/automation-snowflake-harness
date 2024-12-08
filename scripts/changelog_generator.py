@@ -63,51 +63,23 @@ def generate_changelog(objects):
             }]
         }
     })
+    # Create Test Table changeset using SQL with IF NOT EXISTS
     changelog.append({
         'changeSet': {
             'id': 'create-test-table',
             'author': 'dynamic-generator',
-            'preConditions': {
-                'onFail': 'continue',
-                'not': {
-                    'tableExists': {
-                        'schemaName': 'PUBLIC',
-                        'tableName': 'test_rollback_table'
-                    }
-                }
-            },
             'changes': [{
-                'createTable': {
-                    'schemaName': 'PUBLIC',  
-                    'tableName': 'test_rollback_table',  
-                    'columns': [
-                        {
-                            'column': {
-                                'name': 'id',
-                                'type': 'INT',
-                                'constraints': {
-                                    'primaryKey': True,
-                                    'nullable': False
-                                }
-                            }
-                        },
-                        {
-                            'column': {
-                                'name': 'name',
-                                'type': 'VARCHAR(255)',
-                                'constraints': {
-                                    'nullable': True
-                                }
-                            }
-                        }
-                    ]
+                'sql': {
+                    'sql': """
+                    CREATE TABLE IF NOT EXISTS PUBLIC.test_rollback_table (
+                        id INT PRIMARY KEY NOT NULL,
+                        name VARCHAR(255)
+                    );
+                    """
                 }
             }],
             'rollback': [{
-                'dropTable': {
-                    'schemaName': 'PUBLIC',
-                    'tableName': 'test_rollback_table'
-                }
+                'sql': "DROP TABLE IF EXISTS PUBLIC.test_rollback_table;"
             }]
         }
     })
