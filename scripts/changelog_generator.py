@@ -63,7 +63,6 @@ def generate_changelog(objects):
             }]
         }
     })
-   
     for table in objects['tables']:
         changelog.append({
             'changeSet': {
