@@ -51,7 +51,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: |-
+                        script: |
                           cd automation-snowflake-harness
                           python main.py
                           cd migrations
@@ -76,7 +76,10 @@ pipeline:
                           --url="jdbc:snowflake://$SNOWFLAKE_ACCOUNT.snowflakecomputing.com/?db=$SNOWFLAKE_DATABASE&schema=$SNOWFLAKE_SCHEMA" \
                           --username=$SNOWFLAKE_USER \
                           --password=$SNOWFLAKE_PASSWORD \
-                          update
+                          rollbackCount 1
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
               - step:
                   type: ShellScript
                   name: Liquibase Release Lock
