@@ -69,8 +69,8 @@ def generate_changelog(objects):
             'author': 'dynamic-generator',
             'changes': [{
                 'createTable': {
-                    'schemaName': 'PUBLIC',  # 目标schema
-                    'tableName': 'test_table',  # 目标表名
+                    'schemaName': 'PUBLIC',  
+                    'tableName': 'test_rollback_table',  
                     'columns': [
                         {
                             'column': {
