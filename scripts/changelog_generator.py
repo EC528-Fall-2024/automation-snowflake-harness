@@ -97,7 +97,7 @@ def generate_changelog(objects):
             'rollback': [{
                 'dropTable': {
                     'schemaName': 'PUBLIC',
-                    'tableName': 'test_table'
+                    'tableName': 'test_rollback_table'
                 }
             }]
         }
