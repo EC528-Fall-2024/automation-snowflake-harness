@@ -53,7 +53,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness
-                          ##python main.py
+                          python main.py
                           cd migrations
 
                           # Load environment variables from Harness secrets
@@ -159,7 +159,7 @@ pipeline:
                       spec:
                         script: |-
                           cd automation-snowflake-harness/tests
-                          ##python test_migration.py
+                          python test_migration.py
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
