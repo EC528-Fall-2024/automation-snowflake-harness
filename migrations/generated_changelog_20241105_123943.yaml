@@ -1,11 +1,17 @@
 databaseChangeLog:
-- changeSet:
-    id: create-template-warehouse
-    author: dynamic-generator
-    changes:
-    - sql:
-        sql: "\n                    CREATE WAREHOUSE IF NOT EXISTS template_warehouse\n\
-          \                    WAREHOUSE_SIZE = 'SMALL'\n                    AUTO_SUSPEND\
-          \ = 300\n                    AUTO_RESUME = TRUE\n                    INITIALLY_SUSPENDED\
-          \ = TRUE\n                    SCALING_POLICY = 'STANDARD';\n           \
-          \         "
+  - changeSet:
+      id: create-test-table
+      author: dynamic-generator
+      changes:
+        - createTable:
+            schemaName: PUBLIC
+            tableName: test_table
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
